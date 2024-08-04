@@ -38,6 +38,9 @@ setup(
     cmdclass={'build_ext': build_ext},
     zip_safe=False,
     packages=['VoxelForge'],
+    install_requires=[
+        'pybind11>=2.6.0',
+    ],
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: C++',

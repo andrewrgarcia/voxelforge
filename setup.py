@@ -15,7 +15,7 @@ class get_pybind_include(object):
 
 ext_modules = [
     Extension(
-        'VoxelForge.voxel',
+        'VoxelForge.voxelforge',
         ['VoxelForge/voxel.cpp'],
         include_dirs=[
             # Path to pybind11 headers

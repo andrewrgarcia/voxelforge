@@ -1,2 +1,2 @@
-from .voxel import Voxel, VoxelGrid
+from .voxelforge import Voxel, VoxelGrid
 

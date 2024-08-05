@@ -1,5 +1,5 @@
 __pycache__
 pybind11-2.13.1
 build
-output_all_files.sh
 *.svg
+*.sh

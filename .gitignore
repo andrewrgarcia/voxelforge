@@ -4,4 +4,6 @@ pybind11-2.13.1
 build
 *.svg
 *.sh
+*.so
+*.gz
 *egg*

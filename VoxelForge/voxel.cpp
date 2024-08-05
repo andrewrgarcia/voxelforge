@@ -1,7 +1,10 @@
 #include "voxel.h"
+#include <unordered_map>
+#include <tuple>
+#include <iostream>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-
+#include <torch/torch.h>
 
 namespace py = pybind11;
 
@@ -11,6 +14,48 @@ VoxelGrid::VoxelGrid() {}
 
 void VoxelGrid::addVoxel(int x, int y, int z) {
     voxels.emplace_back(x, y, z);
+}
+
+torch::Tensor VoxelGrid::toTorch(int xDim, int yDim, int zDim) {
+    auto options = torch::TensorOptions().dtype(torch::kInt32);
+    torch::Tensor tensor = torch::zeros({xDim, yDim, zDim}, options);
+    
+    for (const auto& voxel : voxels) {
+        if (0 <= voxel.x < xDim && 0 <= voxel.y < yDim && 0 <= voxel.z < zDim) {
+            tensor[voxel.x][voxel.y][voxel.z] = 1;
+        }
+    }
+
+    return tensor;
+}
+
+std::vector<std::pair<int, int>> VoxelGrid::toGraph(int xDim, int yDim, int zDim) {
+    std::unordered_map<int, std::vector<int>> adjList;
+    std::vector<std::pair<int, int>> edges;
+
+    for (const auto& voxel : voxels) {
+        int index = voxel.x * yDim * zDim + voxel.y * zDim + voxel.z;
+        std::vector<std::tuple<int, int, int>> neighbors = {
+            {voxel.x + 1, voxel.y, voxel.z}, {voxel.x - 1, voxel.y, voxel.z},
+            {voxel.x, voxel.y + 1, voxel.z}, {voxel.x, voxel.y - 1, voxel.z},
+            {voxel.x, voxel.y, voxel.z + 1}, {voxel.x, voxel.y, voxel.z - 1}
+        };
+
+        for (const auto& [nx, ny, nz] : neighbors) {
+            if (0 <= nx && nx < xDim && 0 <= ny && ny < yDim && 0 <= nz && nz < zDim) {
+                int neighborIndex = nx * yDim * zDim + ny * zDim + nz;
+                adjList[index].push_back(neighborIndex);
+            }
+        }
+    }
+
+    for (const auto& [key, neighbors] : adjList) {
+        for (int neighbor : neighbors) {
+            edges.emplace_back(key, neighbor);
+        }
+    }
+
+    return edges;
 }
 
 PYBIND11_MODULE(voxelforge, m) {
@@ -25,6 +70,7 @@ PYBIND11_MODULE(voxelforge, m) {
         .def("addVoxel", &VoxelGrid::addVoxel)
         .def("getVoxels", [](const VoxelGrid &grid) {
             return grid.voxels;
-        });
+        })
+        .def("toTorch", &VoxelGrid::toTorch)
+        .def("toGraph", &VoxelGrid::toGraph);
 }
-

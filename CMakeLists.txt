@@ -20,8 +20,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 # Add the C++ source files
 pybind11_add_module(voxelforge VoxelForge/voxel.cpp)
 
-# Link LibTorch
-target_link_libraries(voxelforge "${TORCH_LIBRARIES}")
+# Link LibTorch and other libraries
+target_link_libraries(voxelforge PRIVATE ${TORCH_LIBRARIES})
 
 # Set C++ standard
 set_property(TARGET voxelforge PROPERTY CXX_STANDARD 17)

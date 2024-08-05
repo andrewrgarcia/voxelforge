@@ -1,5 +1,7 @@
 __pycache__
+libtorch
 pybind11-2.13.1
 build
 *.svg
 *.sh
+*egg*

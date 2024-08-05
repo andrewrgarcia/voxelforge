@@ -1,4 +1,4 @@
-# VoxelForge
+![](img/banner.png)
 
 VoxelForge is a high-performance Python package written in C++ for efficient voxel and mesh model creation.
 

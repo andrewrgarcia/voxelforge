@@ -1,1 +1,1 @@
-from .core import Voxel, VoxelGrid
+from .core import Voxel, VoxelGridWrapper as VoxelGrid

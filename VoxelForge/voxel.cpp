@@ -1,10 +1,6 @@
 #include "voxel.h"
-#include <unordered_map>
-#include <tuple>
-#include <iostream>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include <torch/torch.h>
 
 namespace py = pybind11;
 
@@ -14,19 +10,6 @@ VoxelGrid::VoxelGrid() {}
 
 void VoxelGrid::addVoxel(int x, int y, int z) {
     voxels.emplace_back(x, y, z);
-}
-
-torch::Tensor VoxelGrid::toTorch(int xDim, int yDim, int zDim) {
-    auto options = torch::TensorOptions().dtype(torch::kInt32);
-    torch::Tensor tensor = torch::zeros({xDim, yDim, zDim}, options);
-    
-    for (const auto& voxel : voxels) {
-        if (0 <= voxel.x < xDim && 0 <= voxel.y < yDim && 0 <= voxel.z < zDim) {
-            tensor[voxel.x][voxel.y][voxel.z] = 1;
-        }
-    }
-
-    return tensor;
 }
 
 std::vector<std::pair<int, int>> VoxelGrid::toGraph(int xDim, int yDim, int zDim) {
@@ -58,7 +41,7 @@ std::vector<std::pair<int, int>> VoxelGrid::toGraph(int xDim, int yDim, int zDim
     return edges;
 }
 
-PYBIND11_MODULE(voxelforge, m) {
+PYBIND11_MODULE(voxelforge_cpp, m) {
     py::class_<Voxel>(m, "Voxel")
         .def(py::init<int, int, int>())
         .def_readwrite("x", &Voxel::x)
@@ -71,6 +54,5 @@ PYBIND11_MODULE(voxelforge, m) {
         .def("getVoxels", [](const VoxelGrid &grid) {
             return grid.voxels;
         })
-        .def("toTorch", &VoxelGrid::toTorch)
         .def("toGraph", &VoxelGrid::toGraph);
 }

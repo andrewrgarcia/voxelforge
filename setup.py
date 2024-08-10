@@ -17,12 +17,14 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         'voxelforge_cpp',  # Ensure this matches the PYBIND11_MODULE macro
-        ['VoxelForge/voxel.cpp'],
+        sources=['VoxelForge/voxel.cpp', 'VoxelForge/octree.cpp'],
         include_dirs=[
             get_pybind_include(),
             # get_pybind_include(user=True),
             eigen_include_dir,
         ],
+        extra_compile_args=['-std=c++17'],
+        libraries=['stdc++'],  # Link against the C++ standard library
         language='c++'
     ),
 ]

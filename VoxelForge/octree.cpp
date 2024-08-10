@@ -1,7 +1,6 @@
 #include "octree.h"
 #include <stdexcept>
 
-// OctreeLeafNode Implementation
 OctreeLeafNode::OctreeLeafNode(const Eigen::Vector3d& point) : point_(point) {}
 
 bool OctreeLeafNode::IsLeaf() const {
@@ -12,27 +11,10 @@ const Eigen::Vector3d& OctreeLeafNode::GetPoint() const {
     return point_;
 }
 
-// OctreeInternalNode Implementation
 OctreeInternalNode::OctreeInternalNode() : children_(8, nullptr) {}
 
-bool OctreeInternalNode::IsLeaf() const {
-    return false;
-}
-
-void OctreeInternalNode::AddChild(size_t index, std::shared_ptr<OctreeNode> child) {
-    if (index < 8) {
-        children_[index] = child;
-    } else {
-        throw std::out_of_range("Child index out of bounds.");
-    }
-}
-
 std::shared_ptr<OctreeNode> OctreeInternalNode::GetChild(size_t index) const {
-    if (index < 8) {
-        return children_[index];
-    } else {
-        return nullptr;
-    }
+    return children_.at(index);
 }
 
 const std::vector<std::shared_ptr<OctreeNode>>& OctreeInternalNode::GetChildren() const {
@@ -46,29 +28,22 @@ size_t OctreeInternalNode::GetChildIndex(const Eigen::Vector3d& point, const Eig
     return x_index + y_index * 2 + z_index * 4;
 }
 
-// Octree Implementation
 Octree::Octree(const Eigen::Vector3d& origin, double size, size_t max_depth)
-    : origin_(origin), size_(size), max_depth_(max_depth) {
-    root_node_ = std::make_shared<OctreeInternalNode>();
-}
-
-Octree::~Octree() {
-    // Cleanup if necessary
-}
+    : origin_(origin), size_(size), max_depth_(max_depth), root_(std::make_shared<OctreeInternalNode>()) {}
 
 void Octree::InsertPoint(const Eigen::Vector3d& point) {
-    InsertPointRecurse(root_node_, point, origin_, size_, 0);
+    InsertPointRecurse(root_, point, origin_, size_, 0);
 }
 
 std::shared_ptr<OctreeLeafNode> Octree::LocateLeafNode(const Eigen::Vector3d& point) const {
-    std::shared_ptr<OctreeNode> current_node = root_node_;
+    std::shared_ptr<OctreeNode> current_node = root_;
     Eigen::Vector3d current_origin = origin_;
     double current_size = size_;
 
-    for (size_t depth = 0; depth < max_depth_; ++depth) {
+    while (current_node && !current_node->IsLeaf()) {
         auto internal_node = std::dynamic_pointer_cast<OctreeInternalNode>(current_node);
         if (!internal_node) {
-            return nullptr;  // We reached a leaf without finding the point
+            return nullptr;  // Not a leaf and not an internal node
         }
 
         size_t child_index = internal_node->GetChildIndex(point, current_origin, current_size);
@@ -86,14 +61,6 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
                                 const Eigen::Vector3d& point,
                                 const Eigen::Vector3d& origin,
                                 double size, size_t depth) {
-    if (depth == max_depth_) {
-        auto leaf_node = std::dynamic_pointer_cast<OctreeLeafNode>(node);
-        if (!leaf_node) {
-            leaf_node = std::make_shared<OctreeLeafNode>(point);
-        }
-        return;
-    }
-
     auto internal_node = std::dynamic_pointer_cast<OctreeInternalNode>(node);
     if (!internal_node) {
         throw std::runtime_error("Expected an internal node.");
@@ -106,9 +73,9 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
 
     if (!internal_node->GetChild(child_index)) {
         if (depth == max_depth_ - 1) {
-            internal_node->AddChild(child_index, std::make_shared<OctreeLeafNode>(point));
+            internal_node->children_[child_index] = std::make_shared<OctreeLeafNode>(point);
         } else {
-            internal_node->AddChild(child_index, std::make_shared<OctreeInternalNode>());
+            internal_node->children_[child_index] = std::make_shared<OctreeInternalNode>();
         }
     }
 

@@ -65,9 +65,14 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
                                 const Eigen::Vector3d& point,
                                 const Eigen::Vector3d& origin,
                                 double size, size_t depth) {
+    // Check if the node is a leaf node first
+    if (node->IsLeaf()) {
+        throw std::runtime_error("Expected an internal node.");
+    }
+
     auto internal_node = std::dynamic_pointer_cast<OctreeInternalNode>(node);
     if (!internal_node) {
-        throw std::runtime_error("Expected an internal node.");
+        throw std::runtime_error("Failed to cast to internal node.");
     }
 
     size_t child_index = internal_node->GetChildIndex(point, origin, size);
@@ -78,10 +83,12 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
     if (!internal_node->GetChild(child_index)) {
         if (depth == max_depth_ - 1) {
             internal_node->SetChild(child_index, std::make_shared<OctreeLeafNode>(point));
+            return;
         } else {
             internal_node->SetChild(child_index, std::make_shared<OctreeInternalNode>());
         }
     }
 
+    // Recurse into the child node
     InsertPointRecurse(internal_node->GetChild(child_index), point, child_origin, size / 2, depth + 1);
 }

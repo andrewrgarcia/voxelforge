@@ -15,10 +15,13 @@ const Eigen::Vector3d& OctreeLeafNode::GetPoint() const {
 std::string OctreeLeafNode::ToJson(int indent) const {
     std::ostringstream oss;
     std::string indentation(indent, ' ');
+    
     oss << indentation << "{\n";
     oss << indentation << "  \"type\": \"leaf\",\n";
-    oss << indentation << "  \"point\": [" << point_.transpose() << "]\n";
+    oss << indentation << "  \"point\": [" 
+        << point_[0] << ", " << point_[1] << ", " << point_[2] << "]\n";
     oss << indentation << "}";
+    
     return oss.str();
 }
 

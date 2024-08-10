@@ -73,6 +73,8 @@
         "csignal": "cpp",
         "regex": "cpp",
         "future": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "core": "cpp",
+        "specialfunctions": "cpp"
     }
 }

@@ -1,6 +1,5 @@
 import torch
-from voxelforge_cpp import Voxel, VoxelGrid  # Ensure the correct C++ module name is used
-
+from voxelforge_cpp import Voxel, VoxelGrid, Octree, OctreeNode, OctreeLeafNode, OctreeInternalNode
 
 class VoxelGridWrapper(VoxelGrid):
     def toTorch(self, xDim, yDim, zDim):

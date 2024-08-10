@@ -1,8 +1,6 @@
 #include "voxel.h"
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
-
-namespace py = pybind11;
+#include <unordered_map>  
+#include <tuple>          
 
 Voxel::Voxel(int x, int y, int z) : x(x), y(y), z(z) {}
 
@@ -39,20 +37,4 @@ std::vector<std::pair<int, int>> VoxelGrid::toGraph(int xDim, int yDim, int zDim
     }
 
     return edges;
-}
-
-PYBIND11_MODULE(voxelforge_cpp, m) {
-    py::class_<Voxel>(m, "Voxel")
-        .def(py::init<int, int, int>())
-        .def_readwrite("x", &Voxel::x)
-        .def_readwrite("y", &Voxel::y)
-        .def_readwrite("z", &Voxel::z);
-
-    py::class_<VoxelGrid>(m, "VoxelGrid")
-        .def(py::init<>())
-        .def("addVoxel", &VoxelGrid::addVoxel)
-        .def("getVoxels", [](const VoxelGrid &grid) {
-            return grid.voxels;
-        })
-        .def("toGraph", &VoxelGrid::toGraph);
 }

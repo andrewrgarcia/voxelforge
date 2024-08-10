@@ -2,6 +2,8 @@ from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import setuptools
 
+eigen_include_dir = "/usr/include/eigen3"
+
 class get_pybind_include(object):
     """Helper class to determine the pybind11 include path
     The purpose of this class is to postpone importing pybind11
@@ -18,7 +20,8 @@ ext_modules = [
         ['VoxelForge/voxel.cpp'],
         include_dirs=[
             get_pybind_include(),
-            # get_pybind_include(user=True)
+            # get_pybind_include(user=True),
+            eigen_include_dir,
         ],
         language='c++'
     ),

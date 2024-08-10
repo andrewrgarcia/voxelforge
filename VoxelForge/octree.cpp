@@ -1,5 +1,5 @@
 #include "octree.h"
-#include <iostream>
+#include <stdexcept>
 
 // OctreeLeafNode Implementation
 OctreeLeafNode::OctreeLeafNode(const Eigen::Vector3d& point) : point_(point) {}
@@ -35,6 +35,17 @@ std::shared_ptr<OctreeNode> OctreeInternalNode::GetChild(size_t index) const {
     }
 }
 
+const std::vector<std::shared_ptr<OctreeNode>>& OctreeInternalNode::GetChildren() const {
+    return children_;
+}
+
+size_t OctreeInternalNode::GetChildIndex(const Eigen::Vector3d& point, const Eigen::Vector3d& origin, double size) const {
+    size_t x_index = point(0) < origin(0) + size / 2 ? 0 : 1;
+    size_t y_index = point(1) < origin(1) + size / 2 ? 0 : 1;
+    size_t z_index = point(2) < origin(2) + size / 2 ? 0 : 1;
+    return x_index + y_index * 2 + z_index * 4;
+}
+
 // Octree Implementation
 Octree::Octree(const Eigen::Vector3d& origin, double size, size_t max_depth)
     : origin_(origin), size_(size), max_depth_(max_depth) {
@@ -60,17 +71,12 @@ std::shared_ptr<OctreeLeafNode> Octree::LocateLeafNode(const Eigen::Vector3d& po
             return nullptr;  // We reached a leaf without finding the point
         }
 
-        double child_size = current_size / 2.0;
-        size_t x_index = point(0) < current_origin(0) + child_size ? 0 : 1;
-        size_t y_index = point(1) < current_origin(1) + child_size ? 0 : 1;
-        size_t z_index = point(2) < current_origin(2) + child_size ? 0 : 1;
-        size_t child_index = x_index + y_index * 2 + z_index * 4;
-
+        size_t child_index = internal_node->GetChildIndex(point, current_origin, current_size);
         current_node = internal_node->GetChild(child_index);
-        current_origin = current_origin + Eigen::Vector3d(x_index * child_size,
-                                                          y_index * child_size,
-                                                          z_index * child_size);
-        current_size = child_size;
+        current_origin = current_origin + Eigen::Vector3d(child_index % 2 * current_size / 2,
+                                                          (child_index / 2) % 2 * current_size / 2,
+                                                          (child_index / 4) % 2 * current_size / 2);
+        current_size /= 2.0;
     }
 
     return std::dynamic_pointer_cast<OctreeLeafNode>(current_node);
@@ -93,15 +99,10 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
         throw std::runtime_error("Expected an internal node.");
     }
 
-    double child_size = size / 2.0;
-    size_t x_index = point(0) < origin(0) + child_size ? 0 : 1;
-    size_t y_index = point(1) < origin(1) + child_size ? 0 : 1;
-    size_t z_index = point(2) < origin(2) + child_size ? 0 : 1;
-    size_t child_index = x_index + y_index * 2 + z_index * 4;
-
-    Eigen::Vector3d child_origin = origin + Eigen::Vector3d(x_index * child_size,
-                                                            y_index * child_size,
-                                                            z_index * child_size);
+    size_t child_index = internal_node->GetChildIndex(point, origin, size);
+    Eigen::Vector3d child_origin = origin + Eigen::Vector3d(child_index % 2 * size / 2,
+                                                            (child_index / 2) % 2 * size / 2,
+                                                            (child_index / 4) % 2 * size / 2);
 
     if (!internal_node->GetChild(child_index)) {
         if (depth == max_depth_ - 1) {
@@ -111,5 +112,5 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
         }
     }
 
-    InsertPointRecurse(internal_node->GetChild(child_index), point, child_origin, child_size, depth + 1);
+    InsertPointRecurse(internal_node->GetChild(child_index), point, child_origin, size / 2, depth + 1);
 }

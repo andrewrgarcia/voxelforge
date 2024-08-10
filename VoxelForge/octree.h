@@ -4,10 +4,10 @@
 #include <memory>
 #include <Eigen/Dense>
 
-// Abstract base class for Octree nodes
+// Base class for Octree nodes
 class OctreeNode {
 public:
-    virtual ~OctreeNode() = default;
+    virtual ~OctreeNode() = default;  // Ensure virtual destructor is defined
     virtual bool IsLeaf() const = 0;
 };
 
@@ -18,9 +18,11 @@ public:
     bool IsLeaf() const override;
     const Eigen::Vector3d& GetPoint() const;
 
+    ~OctreeLeafNode() override = default;  // Ensure this is virtual
 private:
     Eigen::Vector3d point_;
 };
+
 
 // Octree internal node class
 class OctreeInternalNode : public OctreeNode {

@@ -18,7 +18,7 @@ include_directories(${TORCH_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 # Add the C++ source files
-pybind11_add_module(voxelforge VoxelForge/voxel.cpp)
+pybind11_add_module(voxelforge VoxelForge/voxel.cpp VoxelForge/octree.cpp)
 
 # Link LibTorch and other libraries
 target_link_libraries(voxelforge PRIVATE ${TORCH_LIBRARIES})

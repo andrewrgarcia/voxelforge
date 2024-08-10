@@ -1,6 +1,5 @@
 import VoxelForge as vff
-import torch
-import time
+import numpy as np
 
 # Test the Voxel class
 print("Testing Voxel class:")
@@ -12,8 +11,6 @@ print("\nTesting VoxelGrid class:")
 grid = vff.VoxelGrid()
 grid.addVoxel(4, 5, 6)
 grid.addVoxel(7, 8, 9)
-grid.addVoxel(150, 2, 185)
-
 voxels = grid.getVoxels()
 
 for v in voxels:
@@ -24,32 +21,50 @@ print("\nTesting Graph conversion:")
 edges = grid.toGraph(10, 10, 10)
 print(edges)
 
-import numpy as np
-
 # Test Tensor conversion using VoxelGrid (voxelforge)
-print("\nTesting Tensor conversion with VoxelForge:")
-start_time_voxelforge = time.time()
-grid = vff.VoxelGrid()
-for _ in range(100000):
-    grid.addVoxel(*np.random.randint(0,150,3)) 
-tensor_voxelforge = grid.toTorch(200, 200, 200)
-end_time_voxelforge = time.time() - start_time_voxelforge
-print(f"Tensor conversion with VoxelForge took {end_time_voxelforge:.6f} seconds")
+print("\nTesting Tensor conversion:")
+tensor = grid.toTorch(200, 200, 200)
+print(tensor)
 
-# Test Tensor creation natively with PyTorch
-print("\nTesting native Tensor creation with PyTorch:")
-start_time_torch = time.time()
-tensor_torch = torch.zeros((200, 200, 200), dtype=torch.int32)
-for _ in range(100000):
-    tensor_torch[tuple(np.random.randint(0,150,3))] = 1
-end_time_torch = time.time() - start_time_torch
-print(f"Native Tensor creation with PyTorch took {end_time_torch:.6f} seconds")
+# Test Octree functionality
+print("\nTesting Octree class:")
+origin = np.array([0.0, 0.0, 0.0])
+size = 10.0
+max_depth = 3
+octree = vff.Octree(origin, size, max_depth)
 
-# Optional: Uncomment this to see the tensors (comment out for large tensors)
-# print("\nVoxelForge Tensor:")
-# print(tensor_voxelforge)
-# print("\nPyTorch Tensor:")
-# print(tensor_torch)
+# Insert points into the octree
+points = [
+    np.array([1.0, 1.0, 1.0]),
+    np.array([3.0, 3.0, 3.0]),
+    np.array([7.0, 7.0, 7.0])
+]
 
-# Comparison result
-print(f"\nVoxelForge is {'faster' if end_time_voxelforge < end_time_torch else 'slower'} than native PyTorch by {abs(end_time_voxelforge - end_time_torch):.6f} seconds.")
+for point in points:
+    octree.insert_point(point)
+
+# Locate a leaf node
+leaf_node = octree.locate_leaf_node(np.array([1.0, 1.0, 1.0]))
+if leaf_node:
+    print(f"Leaf node found at {leaf_node.get_point()}")
+else:
+    print("Leaf node not found.")
+
+# Testing insertion of a point and locating it in the octree
+new_point = np.array([2.0, 2.0, 2.0])
+octree.insert_point(new_point)
+found_leaf = octree.locate_leaf_node(new_point)
+
+if found_leaf:
+    print(f"Inserted point found at {found_leaf.get_point()}")
+else:
+    print("Inserted point not found.")
+
+# Test edge cases: locate a point not in the octree
+missing_point = np.array([20.0, 20.0, 20.0])
+missing_leaf = octree.locate_leaf_node(missing_point)
+
+if missing_leaf:
+    print(f"Unexpectedly found a node at {missing_leaf.get_point()}")
+else:
+    print("Correctly did not find a node for the missing point.")

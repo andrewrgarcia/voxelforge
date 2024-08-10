@@ -22,6 +22,10 @@ std::string OctreeLeafNode::ToJson(int indent) const {
     return oss.str();
 }
 
+std::string OctreeLeafNode::ToBitString() const {
+    return "1"; // Leaf node represented as '1'
+}
+
 OctreeInternalNode::OctreeInternalNode() : children_(8, nullptr) {}
 
 std::shared_ptr<OctreeNode> OctreeInternalNode::GetChild(size_t index) const {
@@ -43,23 +47,12 @@ size_t OctreeInternalNode::GetChildIndex(const Eigen::Vector3d& point, const Eig
     return x_index + y_index * 2 + z_index * 4;
 }
 
-std::string Octree::ToBitString() const {
-    return ToBitStringRecurse(root_);
-}
-
-std::string Octree::ToBitStringRecurse(const std::shared_ptr<OctreeNode>& node) const {
-    if (!node) return "0";
-
-    auto internal_node = std::dynamic_pointer_cast<OctreeInternalNode>(node);
-    if (internal_node) {
-        std::string bitstring = "0"; // Internal node
-        for (const auto& child : internal_node->GetChildren()) {
-            bitstring += ToBitStringRecurse(child);
-        }
-        return bitstring;
-    } else {
-        return "1"; // Leaf node
+std::string OctreeInternalNode::ToBitString() const {
+    std::string bitstring = "0"; // Internal node represented as '0'
+    for (const auto& child : children_) {
+        bitstring += (child ? child->ToBitString() : "0");
     }
+    return bitstring;
 }
 
 std::string OctreeInternalNode::ToJson(int indent) const {
@@ -118,7 +111,6 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
                                 const Eigen::Vector3d& point,
                                 const Eigen::Vector3d& origin,
                                 double size, size_t depth) {
-    // Check if the node is a leaf node first
     if (node->IsLeaf()) {
         throw std::runtime_error("Expected an internal node.");
     }
@@ -142,8 +134,11 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
         }
     }
 
-    // Recurse into the child node
     InsertPointRecurse(internal_node->GetChild(child_index), point, child_origin, size / 2, depth + 1);
+}
+
+std::string Octree::ToBitString() const {
+    return root_->ToBitString();  // Call ToBitString on the root node
 }
 
 std::string Octree::ToJson(int indent) const {

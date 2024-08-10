@@ -1,5 +1,6 @@
 #include "octree.h"
 #include <stdexcept>
+#include <sstream> // For JSON and bit-string methods
 
 OctreeLeafNode::OctreeLeafNode(const Eigen::Vector3d& point) : point_(point) {}
 
@@ -9,6 +10,16 @@ bool OctreeLeafNode::IsLeaf() const {
 
 const Eigen::Vector3d& OctreeLeafNode::GetPoint() const {
     return point_;
+}
+
+std::string OctreeLeafNode::ToJson(int indent) const {
+    std::ostringstream oss;
+    std::string indentation(indent, ' ');
+    oss << indentation << "{\n";
+    oss << indentation << "  \"type\": \"leaf\",\n";
+    oss << indentation << "  \"point\": [" << point_.transpose() << "]\n";
+    oss << indentation << "}";
+    return oss.str();
 }
 
 OctreeInternalNode::OctreeInternalNode() : children_(8, nullptr) {}
@@ -30,6 +41,48 @@ size_t OctreeInternalNode::GetChildIndex(const Eigen::Vector3d& point, const Eig
     size_t y_index = point(1) < origin(1) + size / 2 ? 0 : 1;
     size_t z_index = point(2) < origin(2) + size / 2 ? 0 : 1;
     return x_index + y_index * 2 + z_index * 4;
+}
+
+std::string Octree::ToBitString() const {
+    return ToBitStringRecurse(root_);
+}
+
+std::string Octree::ToBitStringRecurse(const std::shared_ptr<OctreeNode>& node) const {
+    if (!node) return "0";
+
+    auto internal_node = std::dynamic_pointer_cast<OctreeInternalNode>(node);
+    if (internal_node) {
+        std::string bitstring = "0"; // Internal node
+        for (const auto& child : internal_node->GetChildren()) {
+            bitstring += ToBitStringRecurse(child);
+        }
+        return bitstring;
+    } else {
+        return "1"; // Leaf node
+    }
+}
+
+std::string OctreeInternalNode::ToJson(int indent) const {
+    std::ostringstream oss;
+    std::string indentation(indent, ' ');
+
+    oss << indentation << "{\n";
+    oss << indentation << "  \"type\": \"internal\",\n";
+    oss << indentation << "  \"children\": [\n";
+    for (size_t i = 0; i < 8; ++i) {
+        auto child = GetChild(i);
+        if (child) {
+            oss << child->ToJson(indent + 4); // Use the child's ToJson method
+        } else {
+            oss << indentation + "    null";
+        }
+        if (i < 7) oss << ",";
+        oss << "\n";
+    }
+    oss << indentation << "  ]\n";
+    oss << indentation << "}";
+
+    return oss.str();
 }
 
 Octree::Octree(const Eigen::Vector3d& origin, double size, size_t max_depth)
@@ -91,4 +144,8 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
 
     // Recurse into the child node
     InsertPointRecurse(internal_node->GetChild(child_index), point, child_origin, size / 2, depth + 1);
+}
+
+std::string Octree::ToJson(int indent) const {
+    return root_ ? root_->ToJson(indent) : "{}"; // Use the root's ToJson method
 }

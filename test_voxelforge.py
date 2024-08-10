@@ -68,3 +68,14 @@ if missing_leaf:
     print(f"Unexpectedly found a node at {missing_leaf.get_point()}")
 else:
     print("Correctly did not find a node for the missing point.")
+
+
+# Get bit-string representation
+bit_string = octree.to_bit_string()
+print("Bit-string representation:")
+print(bit_string)
+
+# Get JSON representation
+json_string = octree.to_json(indent=2)
+print("\nJSON representation:")
+print(json_string)

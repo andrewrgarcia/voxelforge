@@ -1,7 +1,9 @@
 __pycache__
+img/extra
 libtorch
 pybind11-2.13.1
 build
+
 *.svg
 *.sh
 *.so

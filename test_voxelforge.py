@@ -76,6 +76,14 @@ print("Bit-string representation:")
 print(bit_string)
 
 # Get JSON representation
-json_string = octree.to_json(indent=2)
+json_string = octree.to_json(2)
 print("\nJSON representation:")
 print(json_string)
+
+import json
+# Convert the JSON string to a Python dictionary
+json_dict = json.loads(json_string)
+
+# Now you can access the JSON data as a dictionary
+print(json_dict)
+

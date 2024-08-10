@@ -1,4 +1,6 @@
 #include "voxel.h"
+#include <unordered_map>  
+#include <tuple>          
 
 Voxel::Voxel(int x, int y, int z) : x(x), y(y), z(z) {}
 

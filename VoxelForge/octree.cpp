@@ -17,6 +17,10 @@ std::shared_ptr<OctreeNode> OctreeInternalNode::GetChild(size_t index) const {
     return children_.at(index);
 }
 
+void OctreeInternalNode::SetChild(size_t index, std::shared_ptr<OctreeNode> child) {
+    children_.at(index) = std::move(child);
+}
+
 const std::vector<std::shared_ptr<OctreeNode>>& OctreeInternalNode::GetChildren() const {
     return children_;
 }
@@ -73,9 +77,9 @@ void Octree::InsertPointRecurse(const std::shared_ptr<OctreeNode>& node,
 
     if (!internal_node->GetChild(child_index)) {
         if (depth == max_depth_ - 1) {
-            internal_node->children_[child_index] = std::make_shared<OctreeLeafNode>(point);
+            internal_node->SetChild(child_index, std::make_shared<OctreeLeafNode>(point));
         } else {
-            internal_node->children_[child_index] = std::make_shared<OctreeInternalNode>();
+            internal_node->SetChild(child_index, std::make_shared<OctreeInternalNode>());
         }
     }
 

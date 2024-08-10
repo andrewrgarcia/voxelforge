@@ -1,8 +1,8 @@
-#ifndef VOXEL_H
-#define VOXEL_H
+#ifndef VOXELFORGE_VOXEL_H
+#define VOXELFORGE_VOXEL_H
 
 #include <vector>
-#include <utility>
+#include <Eigen/Dense>
 
 class Voxel {
 public:

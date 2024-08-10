@@ -29,6 +29,9 @@ public:
     const std::vector<std::shared_ptr<OctreeNode>>& GetChildren() const;
     size_t GetChildIndex(const Eigen::Vector3d& point, const Eigen::Vector3d& origin, double size) const;
 
+    // Add this declaration
+    void SetChild(size_t index, std::shared_ptr<OctreeNode> child);
+
 private:
     std::vector<std::shared_ptr<OctreeNode>> children_;
 };

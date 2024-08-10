@@ -1,12 +1,19 @@
+#include "voxel.h"
+#include "octree.h"
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+
+namespace py = pybind11;
 
 PYBIND11_MODULE(voxelforge_cpp, m) {
-    // Existing bindings
+    // Bindings for Voxel
     py::class_<Voxel>(m, "Voxel")
         .def(py::init<int, int, int>())
         .def_readwrite("x", &Voxel::x)
         .def_readwrite("y", &Voxel::y)
         .def_readwrite("z", &Voxel::z);
 
+    // Bindings for VoxelGrid
     py::class_<VoxelGrid>(m, "VoxelGrid")
         .def(py::init<>())
         .def("addVoxel", &VoxelGrid::addVoxel)
@@ -15,7 +22,7 @@ PYBIND11_MODULE(voxelforge_cpp, m) {
         })
         .def("toGraph", &VoxelGrid::toGraph);
 
-    // Octree bindings
+    // Bindings for Octree
     py::class_<OctreeNode, std::shared_ptr<OctreeNode>>(m, "OctreeNode")
         .def("is_leaf", &OctreeNode::IsLeaf);
 

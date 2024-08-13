@@ -21,8 +21,8 @@ PYBIND11_MODULE(voxelforge_cpp, m) {
         .def("getVoxels", [](const VoxelGrid &grid) {
             return grid.voxels;
         })
-        .def("toGraph", &VoxelGrid::toGraph);
-
+        .def("toGraph", &VoxelGrid::toGraph)
+        .def("toList", &VoxelGrid::toList);
     // Bindings for OctreeNode and subclasses
     py::class_<OctreeNode, std::shared_ptr<OctreeNode>>(m, "OctreeNode")
         .def("is_leaf", &OctreeNode::IsLeaf)

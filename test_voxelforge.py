@@ -1,5 +1,6 @@
 import VoxelForge as vff
 import numpy as np
+import json
 
 # Test the Voxel class
 print("Testing Voxel class:")
@@ -9,6 +10,7 @@ print(f"Voxel created at ({voxel_instance.x}, {voxel_instance.y}, {voxel_instanc
 # Test the VoxelGrid class
 print("\nTesting VoxelGrid class:")
 grid = vff.VoxelGrid()
+grid.addVoxel(1, 2, 3)
 grid.addVoxel(4, 5, 6)
 grid.addVoxel(7, 8, 9)
 voxels = grid.getVoxels()
@@ -16,15 +18,34 @@ voxels = grid.getVoxels()
 for v in voxels:
     print(f"Voxel at ({v.x}, {v.y}, {v.z})")
 
-# Test Graph conversion
-print("\nTesting Graph conversion:")
-edges = grid.toGraph(10, 10, 10)
-print(edges)
+print("\nTesting List conversion:")
+voxel_list = grid.toList()
+print(voxel_list)  # Output: [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
 
-# Test Tensor conversion using VoxelGrid (voxelforge)
-print("\nTesting Tensor conversion:")
-tensor = grid.toTorch(200, 200, 200)
-print(tensor)
+
+print("\nTesting Graph conversion:")
+# Call the toGraph method (C++ method) to get raw data
+node_features, edge_index = grid.toGraph(9, 9, 9, 1.0)
+
+# The raw node features and edge index from the C++ side
+print("Raw Node Features:", node_features)
+print("Raw Edge Index:", edge_index)
+
+
+# Get the components for a torch_geometric Data object
+graph_data_dict = grid.toTorchGraph(9, 9, 9, 1.0)
+print('Inputs to torch.geometric Data:', graph_data_dict)
+
+# # If the user has torch_geometric installed, they can easily create a Data object
+# from torch_geometric.data import Data
+
+# graph_data = Data(x=graph_data_dict['x'], edge_index=graph_data_dict['edge_index'])
+
+# # graph_data is now a Data object ready for use in PyTorch Geometric
+# print(graph_data)
+
+
+
 
 # Test Octree functionality
 print("\nTesting Octree class:")
@@ -75,15 +96,19 @@ bit_string = octree.to_bit_string()
 print("Bit-string representation:")
 print(bit_string)
 
-# Get JSON representation
-json_string = octree.to_json(2)
-print("\nJSON representation:")
-print(json_string)
+# # Get JSON representation
+# print("\nJSON representation:")
+# json_string = octree.to_json(2)
+# print(json_string)
 
-import json
-# Convert the JSON string to a Python dictionary
-json_dict = json.loads(json_string)
+# # Convert the JSON string to a Python dictionary
+# json_dict = json.loads(json_string)
 
-# Now you can access the JSON data as a dictionary
-print(json_dict)
+# # Access the JSON data as a dictionary
+# print(json_dict)
 
+
+# Test Torch.Tensor conversion using VoxelGrid (voxelforge)
+print("\nTesting Torch.Tensor conversion:")
+tensor = grid.toTorch(9, 9, 9)
+print(tensor)

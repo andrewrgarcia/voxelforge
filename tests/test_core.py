@@ -35,5 +35,5 @@ class TestVoxelGrid(unittest.TestCase):
         self.assertTrue(torch.equal(edge_index, torch.tensor([[0, 1], [1, 0]], dtype=torch.long)))
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()

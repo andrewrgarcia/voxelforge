@@ -9,15 +9,18 @@ namespace py = pybind11;
 PYBIND11_MODULE(voxelforge_cpp, m) {
     // Bindings for Voxel
     py::class_<Voxel>(m, "Voxel")
-        .def(py::init<int, int, int>())
+        .def(py::init<int, int, int, pybind11::object>(), py::arg("x"), py::arg("y"), py::arg("z"), py::arg("data") = py::int_(1))
         .def_readwrite("x", &Voxel::x)
         .def_readwrite("y", &Voxel::y)
-        .def_readwrite("z", &Voxel::z);
+        .def_readwrite("z", &Voxel::z)
+        .def_readwrite("data", &Voxel::data)
+        .def("getData", &Voxel::getData)
+        .def("setData", &Voxel::setData);
 
     // Bindings for VoxelGrid
     py::class_<VoxelGrid>(m, "VoxelGrid")
         .def(py::init<>())
-        .def("addVoxel", &VoxelGrid::addVoxel)
+        .def("addVoxel", &VoxelGrid::addVoxel, py::arg("x"), py::arg("y"), py::arg("z"), py::arg("data") = py::int_(1))
         .def("getVoxels", [](const VoxelGrid &grid) {
             return grid.voxels;
         })

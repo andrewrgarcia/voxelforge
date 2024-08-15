@@ -1,13 +1,23 @@
 #include "voxel.h"
 #include <unordered_map>  
 #include <tuple>          
+#include <cmath>
 
-Voxel::Voxel(int x, int y, int z) : x(x), y(y), z(z) {}
+Voxel::Voxel(int x, int y, int z, pybind11::object data) : x(x), y(y), z(z), data(data) {}
 
-VoxelGrid::VoxelGrid() {}
+pybind11::object Voxel::getData() const {
+    return data;
+}
 
-void VoxelGrid::addVoxel(int x, int y, int z) {
-    voxels.emplace_back(x, y, z);
+void Voxel::setData(pybind11::object value) {
+    data = value;
+}
+
+
+VoxelGrid::VoxelGrid() = default;
+
+void VoxelGrid::addVoxel(int x, int y, int z, pybind11::object data) {
+    voxels.emplace_back(x, y, z, data);
 }
 
 std::vector<std::tuple<int, int, int>> VoxelGrid::toList() const {

@@ -9,3 +9,4 @@ build
 *.so
 *.gz
 *egg*
+CLEANBUILD.md

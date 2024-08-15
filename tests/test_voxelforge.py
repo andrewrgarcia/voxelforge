@@ -11,6 +11,7 @@ print(f"Voxel created at ({voxel_instance.x}, {voxel_instance.y}, {voxel_instanc
 print("\nTesting VoxelGrid class:")
 grid = vff.VoxelGrid()
 grid.addVoxel(1, 2, 3)
+grid.addVoxel(1, 1, 3)
 grid.addVoxel(4, 5, 6)
 grid.addVoxel(7, 8, 9)
 voxels = grid.getVoxels()
@@ -25,7 +26,7 @@ print(voxel_list)  # Output: [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
 
 print("\nTesting Graph conversion:")
 # Call the toGraph method (C++ method) to get raw data
-node_features, edge_index = grid.toGraph(9, 9, 9, 1.0)
+node_features, edge_index = grid.toGraph(9, 9, 9, 10)
 
 # The raw node features and edge index from the C++ side
 print("Raw Node Features:", node_features)
@@ -33,7 +34,7 @@ print("Raw Edge Index:", edge_index)
 
 
 # Get the components for a torch_geometric Data object
-graph_data_dict = grid.toTorchGraph(9, 9, 9, 1.0)
+graph_data_dict = grid.toTorchGraph(9, 9, 9, 10.0)
 print('Inputs to torch.geometric Data:', graph_data_dict)
 
 # # If the user has torch_geometric installed, they can easily create a Data object

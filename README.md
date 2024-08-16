@@ -35,7 +35,7 @@ For complete step-by-step instructions, please refer to the [BUILD.md](BUILD.md)
 ### Basic Voxel Operations
 
 ```python
-import voxelforge as vf
+import VoxelForge as vf
 
 # Create a new VoxelGrid and add a voxel with default identity
 grid = vf.VoxelGrid()

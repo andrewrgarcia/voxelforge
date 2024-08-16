@@ -2,6 +2,14 @@
 
 VoxelForge is a high-performance Python package written in C++ for creating and manipulating voxel models with advanced spatial data structures like octrees and graph representations. Designed to facilitate integration with machine learning and deep learning workflows, VoxelForge is ideal for applications that require complex spatial data processing and analysis.
 
+## Key Features
+
+- Efficient voxel manipulation and storage using C++.
+- Spatial indexing with octree structures for fast query performance.
+- Integration of voxel data into graph structures for advanced modeling and analysis.
+- Flexible data identity for voxels, supporting simple integers by default or complex data types like strings and dictionaries.
+
+
 ## Installation
 
 Install VoxelForge easily using pip:
@@ -10,12 +18,20 @@ Install VoxelForge easily using pip:
 pip install VoxelForge
 ```
 
-## Key Features
 
-- Efficient voxel manipulation and storage using C++.
-- Spatial indexing with octree structures for fast query performance.
-- Integration of voxel data into graph structures for advanced modeling and analysis.
-- Flexible data identity for voxels, supporting simple integers by default or complex data types like strings and dictionaries.
+## Building from Source
+
+If you prefer to build VoxelForge from source, detailed instructions are available in the [BUILD.md](BUILD.md) file.
+
+In summary, you'll need to:
+
+1. Clean the build directory.
+2. Configure the project using CMake.
+3. Build the project with `make`.
+4. Reinstall the package locally using `pip install .`.
+
+For complete step-by-step instructions, please refer to the [BUILD.md](BUILD.md) file.
+
 
 ## Usage
 

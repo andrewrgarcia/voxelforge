@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/andrewrgarcia/voxelforge/main/img/banner.png" width="400">
+<img src="https://raw.githubusercontent.com/andrewrgarcia/voxelforge/main/img/banner.png" width="600">
 
 VoxelForge is a high-performance Python package written in C++ for creating and manipulating voxel models with advanced spatial data structures like octrees and graph representations. Designed to facilitate integration with machine learning and deep learning workflows, VoxelForge is ideal for applications that require complex spatial data processing and analysis.
 

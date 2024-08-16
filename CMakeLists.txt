@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(voxelforge VERSION 0.1.0)
+project(voxelforge VERSION 0.1.1)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,7 @@ include(FetchContent)
 FetchContent_Declare(
   eigen
   GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-  GIT_TAG 3.4.0  # Specify the version you need
+  GIT_TAG 3.4.0
 )
 FetchContent_MakeAvailable(eigen)
 
@@ -23,14 +23,17 @@ find_package(Torch REQUIRED)
 include_directories(${TORCH_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
+# Include directories for header files
+include_directories(${eigen_SOURCE_DIR} VoxelForge)
+
 # Add the C++ source files
 pybind11_add_module(voxelforge VoxelForge/main.cpp VoxelForge/voxel.cpp VoxelForge/octree.cpp)
 
 # Link LibTorch and other libraries
 target_link_libraries(voxelforge PRIVATE ${TORCH_LIBRARIES})
 
-# Ensure Eigen is included
-target_include_directories(voxelforge PRIVATE ${eigen_SOURCE_DIR})
+# Ensure Eigen and VoxelForge are included
+target_include_directories(voxelforge PRIVATE ${eigen_SOURCE_DIR} VoxelForge)
 
 # Copy LibTorch DLLs on Windows
 if (MSVC)

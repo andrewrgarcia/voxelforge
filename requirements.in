@@ -2,3 +2,4 @@ sphinx
 breathe
 torch
 pybind11
+furo

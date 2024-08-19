@@ -75,6 +75,7 @@
         "future": "cpp",
         "shared_mutex": "cpp",
         "core": "cpp",
-        "specialfunctions": "cpp"
+        "specialfunctions": "cpp",
+        "cfenv": "cpp"
     }
 }

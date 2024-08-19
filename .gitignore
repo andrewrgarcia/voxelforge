@@ -11,3 +11,5 @@ build
 *.gz
 *egg*
 CLEANBUILD.md
+
+doxygen/

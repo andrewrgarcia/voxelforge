@@ -9,18 +9,53 @@ The API reference details all classes, methods, and their functions:
    :show-inheritance:
 
 
+
+
 Voxel
 -----
 
-.. automodule:: VoxelForge.Voxel
+.. doxygenclass:: Voxel
     :members:
     :undoc-members:
-    :show-inheritance:
+
 
 VoxelGrid
 ---------
 
-.. automodule:: VoxelForge.VoxelGrid
+.. autoclass:: VoxelForge.VoxelGrid
     :members:
     :undoc-members:
-    :show-inheritance:
+    :inherited-members:
+
+.. autoclass:: VoxelForge.core.VoxelGridWrapper
+    :members:
+    :undoc-members:
+    :inherited-members:
+
+    
+.. doxygenclass:: VoxelGrid
+    :members:
+    :undoc-members:
+
+
+Octree
+------------
+
+.. doxygenclass:: Octree
+    :members:
+    :undoc-members:
+
+
+.. doxygenclass:: OctreeLeafNode
+    :members:
+    :undoc-members:
+
+
+.. doxygenclass:: OctreeInternalNode
+    :members:
+    :undoc-members:
+
+
+.. doxygenclass:: OctreeNode
+    :members:
+    :undoc-members:

@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="octree_8cpp" kind="file" language="C++">
+    <compoundname>octree.cpp</compoundname>
+    <includes refid="octree_8h" local="yes">octree.h</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">sstream</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>octree.h</label>
+        <link refid="octree_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stdexcept</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>octree.cpp</label>
+        <link refid="octree_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>sstream</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="octree_8h" kindref="compound">octree.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>For<sp/>JSON<sp/>and<sp/>bit-string<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="classOctreeLeafNode_1acef0b95fe46052ca6ef3c308f3568b22" refkind="member"><highlight class="normal"><ref refid="classOctreeLeafNode_1acef0b95fe46052ca6ef3c308f3568b22" kindref="member">OctreeLeafNode::OctreeLeafNode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>point)<sp/>:<sp/>point_(point)<sp/>{}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730" kindref="member">OctreeLeafNode::IsLeaf</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/><ref refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" kindref="member">OctreeLeafNode::GetPoint</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" kindref="member">point_</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" kindref="member">OctreeLeafNode::ToJson</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>indent)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostringstream<sp/>oss;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>indentation(indent,<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;{\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>\&quot;type\&quot;:<sp/>\&quot;leaf\&quot;,\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>\&quot;point\&quot;:<sp/>[&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" kindref="member">point_</ref>[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" kindref="member">point_</ref>[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" kindref="member">point_</ref>[2]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>oss.str();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308" kindref="member">OctreeLeafNode::ToBitString</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Leaf<sp/>node<sp/>represented<sp/>as<sp/>&apos;1&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classOctreeInternalNode_1a714a84300584ea7d017186e0268ff65b" refkind="member"><highlight class="normal"><ref refid="classOctreeInternalNode_1a714a84300584ea7d017186e0268ff65b" kindref="member">OctreeInternalNode::OctreeInternalNode</ref>()<sp/>:<sp/>children_(8,<sp/>nullptr)<sp/>{}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" refkind="member"><highlight class="normal">std::shared_ptr&lt;OctreeNode&gt;<sp/><ref refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" kindref="member">OctreeInternalNode::GetChild</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" kindref="member">children_</ref>.at(index);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" kindref="member">OctreeInternalNode::SetChild</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index,<sp/>std::shared_ptr&lt;OctreeNode&gt;<sp/>child)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" kindref="member">children_</ref>.at(index)<sp/>=<sp/>std::move(child);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;OctreeNode&gt;&gt;&amp;<sp/><ref refid="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" kindref="member">OctreeInternalNode::GetChildren</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" kindref="member">children_</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classOctreeInternalNode_1a1493f359500c1a65ba7607172ef4a438" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classOctreeInternalNode_1a1493f359500c1a65ba7607172ef4a438" kindref="member">OctreeInternalNode::GetChildIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>point,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>origin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>size)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>x_index<sp/>=<sp/>point(0)<sp/>&lt;<sp/>origin(0)<sp/>+<sp/>size<sp/>/<sp/>2<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>y_index<sp/>=<sp/>point(1)<sp/>&lt;<sp/>origin(1)<sp/>+<sp/>size<sp/>/<sp/>2<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>z_index<sp/>=<sp/>point(2)<sp/>&lt;<sp/>origin(2)<sp/>+<sp/>size<sp/>/<sp/>2<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>x_index<sp/>+<sp/>y_index<sp/>*<sp/>2<sp/>+<sp/>z_index<sp/>*<sp/>4;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" kindref="member">OctreeInternalNode::ToBitString</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>bitstring<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Internal<sp/>node<sp/>represented<sp/>as<sp/>&apos;0&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>child<sp/>:<sp/><ref refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" kindref="member">children_</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bitstring<sp/>+=<sp/>(child<sp/>?<sp/>child-&gt;ToBitString()<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bitstring;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" kindref="member">OctreeInternalNode::ToJson</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>indent)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostringstream<sp/>oss;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>indentation(indent,<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;{\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>\&quot;type\&quot;:<sp/>\&quot;internal\&quot;,\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>\&quot;children\&quot;:<sp/>[\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>child<sp/>=<sp/><ref refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" kindref="member">GetChild</ref>(i);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(child)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>child-&gt;ToJson(indent<sp/>+<sp/>4);<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>the<sp/>child&apos;s<sp/>ToJson<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>null&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>7)<sp/>oss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>]\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>indentation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>oss.str();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classOctree_1ade9860a042c987b597df86005441dde6" refkind="member"><highlight class="normal"><ref refid="classOctree_1ade9860a042c987b597df86005441dde6" kindref="member">Octree::Octree</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>origin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>max_depth)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>origin_(origin),<sp/>size_(size),<sp/>max_depth_(max_depth),<sp/>root_(std::make_shared&lt;<ref refid="classOctreeInternalNode" kindref="compound">OctreeInternalNode</ref>&gt;())<sp/>{}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" kindref="member">Octree::InsertPoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>point)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" kindref="member">InsertPointRecurse</ref>(<ref refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kindref="member">root_</ref>,<sp/>point,<sp/><ref refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" kindref="member">origin_</ref>,<sp/><ref refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" kindref="member">size_</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" refkind="member"><highlight class="normal">std::shared_ptr&lt;OctreeLeafNode&gt;<sp/><ref refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" kindref="member">Octree::LocateLeafNode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>point)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;OctreeNode&gt;<sp/>current_node<sp/>=<sp/><ref refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kindref="member">root_</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>current_origin<sp/>=<sp/><ref refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" kindref="member">origin_</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_size<sp/>=<sp/><ref refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" kindref="member">size_</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(current_node<sp/>&amp;&amp;<sp/>!current_node-&gt;IsLeaf())<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>internal_node<sp/>=<sp/>std::dynamic_pointer_cast&lt;OctreeInternalNode&gt;(current_node);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!internal_node)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>a<sp/>leaf<sp/>and<sp/>not<sp/>an<sp/>internal<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>child_index<sp/>=<sp/>internal_node-&gt;GetChildIndex(point,<sp/>current_origin,<sp/>current_size);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_node<sp/>=<sp/>internal_node-&gt;GetChild(child_index);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_origin<sp/>=<sp/>current_origin<sp/>+<sp/>Eigen::Vector3d(child_index<sp/>%<sp/>2<sp/>*<sp/>current_size<sp/>/<sp/>2,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(child_index<sp/>/<sp/>2)<sp/>%<sp/>2<sp/>*<sp/>current_size<sp/>/<sp/>2,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(child_index<sp/>/<sp/>4)<sp/>%<sp/>2<sp/>*<sp/>current_size<sp/>/<sp/>2);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_size<sp/>/=<sp/>2.0;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::dynamic_pointer_cast&lt;OctreeLeafNode&gt;(current_node);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" kindref="member">Octree::InsertPointRecurse</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;OctreeNode&gt;&amp;<sp/>node,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>point,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d&amp;<sp/>origin,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>depth)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;IsLeaf())<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Expected<sp/>an<sp/>internal<sp/>node.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>internal_node<sp/>=<sp/>std::dynamic_pointer_cast&lt;OctreeInternalNode&gt;(node);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!internal_node)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>cast<sp/>to<sp/>internal<sp/>node.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>child_index<sp/>=<sp/>internal_node-&gt;GetChildIndex(point,<sp/>origin,<sp/>size);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>child_origin<sp/>=<sp/>origin<sp/>+<sp/>Eigen::Vector3d(child_index<sp/>%<sp/>2<sp/>*<sp/>size<sp/>/<sp/>2,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(child_index<sp/>/<sp/>2)<sp/>%<sp/>2<sp/>*<sp/>size<sp/>/<sp/>2,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(child_index<sp/>/<sp/>4)<sp/>%<sp/>2<sp/>*<sp/>size<sp/>/<sp/>2);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!internal_node-&gt;GetChild(child_index))<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(depth<sp/>==<sp/><ref refid="classOctree_1ae262ba1d9a7323a8c7f4c20b66f2e338" kindref="member">max_depth_</ref><sp/>-<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_node-&gt;SetChild(child_index,<sp/>std::make_shared&lt;OctreeLeafNode&gt;(point));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_node-&gt;SetChild(child_index,<sp/>std::make_shared&lt;OctreeInternalNode&gt;());</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" kindref="member">InsertPointRecurse</ref>(internal_node-&gt;GetChild(child_index),<sp/>point,<sp/>child_origin,<sp/>size<sp/>/<sp/>2,<sp/>depth<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" kindref="member">Octree::ToBitString</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kindref="member">root_</ref>-&gt;ToBitString();<sp/><sp/></highlight><highlight class="comment">//<sp/>Call<sp/>ToBitString<sp/>on<sp/>the<sp/>root<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" kindref="member">Octree::ToJson</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>indent)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kindref="member">root_</ref><sp/>?<sp/><ref refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kindref="member">root_</ref>-&gt;ToJson(indent)<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;{}&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>the<sp/>root&apos;s<sp/>ToJson<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/andrew/voxelforge/VoxelForge/octree.cpp"/>
+  </compounddef>
+</doxygen>

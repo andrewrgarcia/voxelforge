@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classOctreeNode" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>OctreeNode</compoundname>
+    <derivedcompoundref refid="classOctreeInternalNode" prot="public" virt="non-virtual">OctreeInternalNode</derivedcompoundref>
+    <derivedcompoundref refid="classOctreeLeafNode" prot="public" virt="non-virtual">OctreeLeafNode</derivedcompoundref>
+    <includes refid="octree_8h" local="yes">/home/andrew/voxelforge/VoxelForge/octree.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool OctreeNode::IsLeaf</definition>
+        <argsstring>() const =0</argsstring>
+        <name>IsLeaf</name>
+        <reimplementedby refid="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730">IsLeaf</reimplementedby>
+        <reimplementedby refid="classOctreeInternalNode_1a727c82022c2bfab893edd3da6ba79374">IsLeaf</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="11" column="18"/>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeNode_1a218c1936b3aa67dad762986859c0f353" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string OctreeNode::ToJson</definition>
+        <argsstring>(int indent=0) const =0</argsstring>
+        <name>ToJson</name>
+        <reimplementedby refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b">ToJson</reimplementedby>
+        <reimplementedby refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be">ToJson</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>indent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="12" column="25"/>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeNode_1a0dac4caf2b463211d3e085e828e1d215" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string OctreeNode::ToBitString</definition>
+        <argsstring>() const =0</argsstring>
+        <name>ToBitString</name>
+        <reimplementedby refid="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308">ToBitString</reimplementedby>
+        <reimplementedby refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b">ToBitString</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="13" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeNode_1a6c8aef2204b968cecd2f53813b7a1e90" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual OctreeNode::~OctreeNode</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OctreeNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="14" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>OctreeLeafNode</label>
+        <link refid="classOctreeLeafNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>OctreeNode</label>
+        <link refid="classOctreeNode"/>
+      </node>
+      <node id="2">
+        <label>OctreeInternalNode</label>
+        <link refid="classOctreeInternalNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="9" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c" prot="public" virt="pure-virtual"><scope>OctreeNode</scope><name>IsLeaf</name></member>
+      <member refid="classOctreeNode_1a0dac4caf2b463211d3e085e828e1d215" prot="public" virt="pure-virtual"><scope>OctreeNode</scope><name>ToBitString</name></member>
+      <member refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353" prot="public" virt="pure-virtual"><scope>OctreeNode</scope><name>ToJson</name></member>
+      <member refid="classOctreeNode_1a6c8aef2204b968cecd2f53813b7a1e90" prot="public" virt="virtual"><scope>OctreeNode</scope><name>~OctreeNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

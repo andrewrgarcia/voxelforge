@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classOctree" kind="class"><name>Octree</name>
+    <member refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" kind="variable"><name>origin_</name></member>
+    <member refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" kind="variable"><name>size_</name></member>
+    <member refid="classOctree_1ae262ba1d9a7323a8c7f4c20b66f2e338" kind="variable"><name>max_depth_</name></member>
+    <member refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" kind="variable"><name>root_</name></member>
+    <member refid="classOctree_1ade9860a042c987b597df86005441dde6" kind="function"><name>Octree</name></member>
+    <member refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" kind="function"><name>InsertPoint</name></member>
+    <member refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" kind="function"><name>LocateLeafNode</name></member>
+    <member refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" kind="function"><name>ToBitString</name></member>
+    <member refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" kind="function"><name>ToJson</name></member>
+    <member refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" kind="function"><name>InsertPointRecurse</name></member>
+  </compound>
+  <compound refid="classOctreeInternalNode" kind="class"><name>OctreeInternalNode</name>
+    <member refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" kind="variable"><name>children_</name></member>
+    <member refid="classOctreeInternalNode_1a714a84300584ea7d017186e0268ff65b" kind="function"><name>OctreeInternalNode</name></member>
+    <member refid="classOctreeInternalNode_1a727c82022c2bfab893edd3da6ba79374" kind="function"><name>IsLeaf</name></member>
+    <member refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" kind="function"><name>GetChild</name></member>
+    <member refid="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" kind="function"><name>GetChildren</name></member>
+    <member refid="classOctreeInternalNode_1a1493f359500c1a65ba7607172ef4a438" kind="function"><name>GetChildIndex</name></member>
+    <member refid="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" kind="function"><name>SetChild</name></member>
+    <member refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" kind="function"><name>ToBitString</name></member>
+    <member refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" kind="function"><name>ToJson</name></member>
+  </compound>
+  <compound refid="classOctreeLeafNode" kind="class"><name>OctreeLeafNode</name>
+    <member refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" kind="variable"><name>point_</name></member>
+    <member refid="classOctreeLeafNode_1acef0b95fe46052ca6ef3c308f3568b22" kind="function"><name>OctreeLeafNode</name></member>
+    <member refid="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730" kind="function"><name>IsLeaf</name></member>
+    <member refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" kind="function"><name>GetPoint</name></member>
+    <member refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" kind="function"><name>ToJson</name></member>
+    <member refid="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308" kind="function"><name>ToBitString</name></member>
+  </compound>
+  <compound refid="classOctreeNode" kind="class"><name>OctreeNode</name>
+    <member refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c" kind="function"><name>IsLeaf</name></member>
+    <member refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353" kind="function"><name>ToJson</name></member>
+    <member refid="classOctreeNode_1a0dac4caf2b463211d3e085e828e1d215" kind="function"><name>ToBitString</name></member>
+    <member refid="classOctreeNode_1a6c8aef2204b968cecd2f53813b7a1e90" kind="function"><name>~OctreeNode</name></member>
+  </compound>
+  <compound refid="classVoxel" kind="class"><name>Voxel</name>
+    <member refid="classVoxel_1a674294363564721716c6f0aa4f215ede" kind="variable"><name>x</name></member>
+    <member refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" kind="variable"><name>y</name></member>
+    <member refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" kind="variable"><name>z</name></member>
+    <member refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" kind="variable"><name>data</name></member>
+    <member refid="classVoxel_1a3ec9ead5df15b2735e62765531485250" kind="function"><name>Voxel</name></member>
+    <member refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" kind="function"><name>getData</name></member>
+    <member refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" kind="function"><name>setData</name></member>
+  </compound>
+  <compound refid="classVoxelGrid" kind="class"><name>VoxelGrid</name>
+    <member refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" kind="variable"><name>voxels</name></member>
+    <member refid="classVoxelGrid_1a7c8c91595d2c009db8f67557bb87c2aa" kind="function"><name>VoxelGrid</name></member>
+    <member refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" kind="function"><name>addVoxel</name></member>
+    <member refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" kind="function"><name>toList</name></member>
+    <member refid="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" kind="function"><name>toGraph</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" kind="function"><name>PYBIND11_MODULE</name></member>
+  </compound>
+  <compound refid="octree_8cpp" kind="file"><name>octree.cpp</name>
+  </compound>
+  <compound refid="octree_8h" kind="file"><name>octree.h</name>
+  </compound>
+  <compound refid="voxel_8cpp" kind="file"><name>voxel.cpp</name>
+    <member refid="voxel_8cpp_1a4fa9b1a6b72022d76a223da0ce920d06" kind="function"><name>createNodeFeatures</name></member>
+    <member refid="voxel_8cpp_1a03c7ff708a72e2a3e2100ef4a87ddab2" kind="function"><name>createEdgeIndex</name></member>
+    <member refid="voxel_8cpp_1a87852c588d25ed4b01291195a4032937" kind="function"><name>calculateDistance</name></member>
+  </compound>
+  <compound refid="voxel_8h" kind="file"><name>voxel.h</name>
+  </compound>
+  <compound refid="dir_37227dd2487b3f78176f8bb2ed6568be" kind="dir"><name>andrew</name>
+  </compound>
+  <compound refid="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2" kind="dir"><name>home</name>
+  </compound>
+  <compound refid="dir_72fea298333a065cd07fb7b89ca74fce" kind="dir"><name>voxelforge</name>
+  </compound>
+  <compound refid="dir_898bc6a100563898647931cb15fae06c" kind="dir"><name>VoxelForge</name>
+  </compound>
+</doxygenindex>

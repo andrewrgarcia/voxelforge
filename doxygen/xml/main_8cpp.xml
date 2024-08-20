@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="voxel_8h" local="yes">voxel.h</includes>
+    <includes refid="octree_8h" local="yes">octree.h</includes>
+    <includes local="no">pybind11/pybind11.h</includes>
+    <includes local="no">pybind11/stl.h</includes>
+    <includes local="no">pybind11/eigen.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>voxel.h</label>
+        <link refid="voxel_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>octree.h</label>
+        <link refid="octree_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="11">
+        <label>pybind11/eigen.h</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="5">
+        <label>tuple</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="6">
+        <label>pybind11/pybind11.h</label>
+      </node>
+      <node id="1">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>memory</label>
+      </node>
+      <node id="10">
+        <label>pybind11/stl.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PYBIND11_MODULE</definition>
+        <argsstring>(voxelforge_cpp, m)</argsstring>
+        <name>PYBIND11_MODULE</name>
+        <param>
+          <type>voxelforge_cpp</type>
+        </param>
+        <param>
+          <type>m</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/main.cpp" line="9" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/main.cpp" bodystart="9" bodyend="51"/>
+        <references refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" compoundref="voxel_8cpp" startline="19" endline="21">VoxelGrid::addVoxel</references>
+        <references refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" compoundref="voxel_8h" startline="11">Voxel::data</references>
+        <references refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" compoundref="octree_8cpp" startline="34" endline="36">OctreeInternalNode::GetChild</references>
+        <references refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" compoundref="voxel_8cpp" startline="8" endline="10">Voxel::getData</references>
+        <references refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" compoundref="octree_8cpp" startline="11" endline="13">OctreeLeafNode::GetPoint</references>
+        <references refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" compoundref="octree_8cpp" startline="87" endline="89">Octree::InsertPoint</references>
+        <references refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c">OctreeNode::IsLeaf</references>
+        <references refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" compoundref="octree_8cpp" startline="91" endline="111">Octree::LocateLeafNode</references>
+        <references refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" compoundref="voxel_8cpp" startline="12" endline="14">Voxel::setData</references>
+        <references refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" compoundref="octree_8cpp" startline="143" endline="145">Octree::ToBitString</references>
+        <references refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" compoundref="octree_8cpp" startline="53" endline="59">OctreeInternalNode::ToBitString</references>
+        <references refid="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" compoundref="voxel_8cpp" startline="38" endline="42">VoxelGrid::toGraph</references>
+        <references refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" compoundref="octree_8cpp" startline="147" endline="149">Octree::ToJson</references>
+        <references refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353">OctreeNode::ToJson</references>
+        <references refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" compoundref="octree_8cpp" startline="15" endline="26">OctreeLeafNode::ToJson</references>
+        <references refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" compoundref="octree_8cpp" startline="61" endline="82">OctreeInternalNode::ToJson</references>
+        <references refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" compoundref="voxel_8cpp" startline="23" endline="29">VoxelGrid::toList</references>
+        <references refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" compoundref="voxel_8h" startline="21">VoxelGrid::voxels</references>
+        <references refid="classVoxel_1a674294363564721716c6f0aa4f215ede" compoundref="voxel_8h" startline="10">Voxel::x</references>
+        <references refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" compoundref="voxel_8h" startline="10">Voxel::y</references>
+        <references refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" compoundref="voxel_8h" startline="10">Voxel::z</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="voxel_8h" kindref="compound">voxel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="octree_8h" kindref="compound">octree.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/pybind11.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/stl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/eigen.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">py<sp/>=<sp/>pybind11;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" refkind="member"><highlight class="normal"><ref refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" kindref="member">PYBIND11_MODULE</ref>(voxelforge_cpp,<sp/>m)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bindings<sp/>for<sp/>Voxel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;Voxel&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;Voxel&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(py::init&lt;int,<sp/>int,<sp/>int,<sp/>pybind11::object&gt;(),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;z&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;data&quot;</highlight><highlight class="normal">)<sp/>=<sp/>py::int_(1))</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def_readwrite(</highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1a674294363564721716c6f0aa4f215ede" kindref="member">Voxel::x</ref>)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def_readwrite(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" kindref="member">Voxel::y</ref>)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def_readwrite(</highlight><highlight class="stringliteral">&quot;z&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" kindref="member">Voxel::z</ref>)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def_readwrite(</highlight><highlight class="stringliteral">&quot;data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" kindref="member">Voxel::data</ref>)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;getData&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" kindref="member">Voxel::getData</ref>)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;setData&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" kindref="member">Voxel::setData</ref>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bindings<sp/>for<sp/>VoxelGrid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;VoxelGrid&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;VoxelGrid&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(py::init&lt;&gt;())</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;addVoxel&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" kindref="member">VoxelGrid::addVoxel</ref>,<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;z&quot;</highlight><highlight class="normal">),<sp/>py::arg(</highlight><highlight class="stringliteral">&quot;data&quot;</highlight><highlight class="normal">)<sp/>=<sp/>py::int_(1))</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;getVoxels&quot;</highlight><highlight class="normal">,<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classVoxelGrid" kindref="compound">VoxelGrid</ref><sp/>&amp;grid)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>grid.<ref refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" kindref="member">voxels</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;toGraph&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" kindref="member">VoxelGrid::toGraph</ref>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;toList&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" kindref="member">VoxelGrid::toList</ref>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bindings<sp/>for<sp/>OctreeNode<sp/>and<sp/>subclasses</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;OctreeNode,<sp/>std::shared_ptr&lt;OctreeNode&gt;&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;OctreeNode&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;is_leaf&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c" kindref="member">OctreeNode::IsLeaf</ref>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_json&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353" kindref="member">OctreeNode::ToJson</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Bind<sp/>ToJson<sp/>for<sp/>OctreeNode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;OctreeLeafNode,<sp/>OctreeNode,<sp/>std::shared_ptr&lt;OctreeLeafNode&gt;&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;OctreeLeafNode&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(py::init&lt;const<sp/>Eigen::Vector3d&amp;&gt;())</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;get_point&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" kindref="member">OctreeLeafNode::GetPoint</ref>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_json&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" kindref="member">OctreeLeafNode::ToJson</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Bind<sp/>ToJson<sp/>for<sp/>OctreeLeafNode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;OctreeInternalNode,<sp/>OctreeNode,<sp/>std::shared_ptr&lt;OctreeInternalNode&gt;&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;OctreeInternalNode&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(py::init&lt;&gt;())</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;get_child&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" kindref="member">OctreeInternalNode::GetChild</ref>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_bit_string&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" kindref="member">OctreeInternalNode::ToBitString</ref>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_json&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" kindref="member">OctreeInternalNode::ToJson</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Bind<sp/>ToJson<sp/>for<sp/>OctreeInternalNode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>py::class_&lt;Octree,<sp/>std::shared_ptr&lt;Octree&gt;&gt;(m,<sp/></highlight><highlight class="stringliteral">&quot;Octree&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(py::init&lt;const<sp/>Eigen::Vector3d&amp;,<sp/>double,<sp/>size_t&gt;())</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;insert_point&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" kindref="member">Octree::InsertPoint</ref>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;locate_leaf_node&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" kindref="member">Octree::LocateLeafNode</ref>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_bit_string&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" kindref="member">Octree::ToBitString</ref>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;to_json&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" kindref="member">Octree::ToJson</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Bind<sp/>ToJson<sp/>for<sp/>Octree</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/andrew/voxelforge/VoxelForge/main.cpp"/>
+  </compounddef>
+</doxygen>

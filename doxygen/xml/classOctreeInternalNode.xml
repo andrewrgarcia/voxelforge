@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classOctreeInternalNode" kind="class" language="C++" prot="public">
+    <compoundname>OctreeInternalNode</compoundname>
+    <basecompoundref refid="classOctreeNode" prot="public" virt="non-virtual">OctreeNode</basecompoundref>
+    <includes refid="octree_8h" local="yes">/home/andrew/voxelforge/VoxelForge/octree.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;OctreeNode&gt; &gt; OctreeInternalNode::children_</definition>
+        <argsstring></argsstring>
+        <name>children_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="41" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" compoundref="octree_8cpp" startline="34" endline="36">GetChild</referencedby>
+        <referencedby refid="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" compoundref="octree_8cpp" startline="42" endline="44">GetChildren</referencedby>
+        <referencedby refid="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" compoundref="octree_8cpp" startline="38" endline="40">SetChild</referencedby>
+        <referencedby refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" compoundref="octree_8cpp" startline="53" endline="59">ToBitString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOctreeInternalNode_1a714a84300584ea7d017186e0268ff65b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OctreeInternalNode::OctreeInternalNode</definition>
+        <argsstring>()</argsstring>
+        <name>OctreeInternalNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="31" column="5" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1a727c82022c2bfab893edd3da6ba79374" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool OctreeInternalNode::IsLeaf</definition>
+        <argsstring>() const override</argsstring>
+        <name>IsLeaf</name>
+        <reimplements refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c">IsLeaf</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="32" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; OctreeNode &gt; OctreeInternalNode::GetChild</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>GetChild</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="33" column="21" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="34" bodyend="36"/>
+        <references refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" compoundref="octree_8h" startline="41">children_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+        <referencedby refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" compoundref="octree_8cpp" startline="61" endline="82">ToJson</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt; &gt; &amp;</type>
+        <definition>const std::vector&lt; std::shared_ptr&lt; OctreeNode &gt; &gt; &amp; OctreeInternalNode::GetChildren</definition>
+        <argsstring>() const</argsstring>
+        <name>GetChildren</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="34" column="23" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="42" bodyend="44"/>
+        <references refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" compoundref="octree_8h" startline="41">children_</references>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1a1493f359500c1a65ba7607172ef4a438" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t OctreeInternalNode::GetChildIndex</definition>
+        <argsstring>(const Eigen::Vector3d &amp;point, const Eigen::Vector3d &amp;origin, double size) const</argsstring>
+        <name>GetChildIndex</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="35" column="12" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="46" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OctreeInternalNode::SetChild</definition>
+        <argsstring>(size_t index, std::shared_ptr&lt; OctreeNode &gt; child)</argsstring>
+        <name>SetChild</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="36" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="38" bodyend="40"/>
+        <references refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" compoundref="octree_8h" startline="41">children_</references>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string OctreeInternalNode::ToBitString</definition>
+        <argsstring>() const override</argsstring>
+        <name>ToBitString</name>
+        <reimplements refid="classOctreeNode_1a0dac4caf2b463211d3e085e828e1d215">ToBitString</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="37" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="53" bodyend="59"/>
+        <references refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" compoundref="octree_8h" startline="41">children_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string OctreeInternalNode::ToJson</definition>
+        <argsstring>(int indent=0) const override</argsstring>
+        <name>ToJson</name>
+        <reimplements refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353">ToJson</reimplements>
+        <param>
+          <type>int</type>
+          <declname>indent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="38" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="61" bodyend="82"/>
+        <references refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" compoundref="octree_8cpp" startline="34" endline="36">GetChild</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>OctreeNode</label>
+        <link refid="classOctreeNode"/>
+      </node>
+      <node id="1">
+        <label>OctreeInternalNode</label>
+        <link refid="classOctreeInternalNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>T</label>
+      </node>
+      <node id="5">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OctreeNode</label>
+        <link refid="classOctreeNode"/>
+      </node>
+      <node id="1">
+        <label>OctreeInternalNode</label>
+        <link refid="classOctreeInternalNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>children_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; std::shared_ptr&lt; OctreeNode &gt; &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="template-instance">
+          <edgelabel>&lt; std::shared_ptr&lt; OctreeNode &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::shared_ptr&lt; OctreeNode &gt;</label>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; OctreeNode &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="29" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="29" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classOctreeInternalNode_1a883425536d24ffb8d609a93aac300f00" prot="private" virt="non-virtual"><scope>OctreeInternalNode</scope><name>children_</name></member>
+      <member refid="classOctreeInternalNode_1a13c5400b4e453f2a2c7f602c13eb7c13" prot="public" virt="non-virtual"><scope>OctreeInternalNode</scope><name>GetChild</name></member>
+      <member refid="classOctreeInternalNode_1a1493f359500c1a65ba7607172ef4a438" prot="public" virt="non-virtual"><scope>OctreeInternalNode</scope><name>GetChildIndex</name></member>
+      <member refid="classOctreeInternalNode_1a8bce5b4b6604799286287c26fe51ef67" prot="public" virt="non-virtual"><scope>OctreeInternalNode</scope><name>GetChildren</name></member>
+      <member refid="classOctreeInternalNode_1a727c82022c2bfab893edd3da6ba79374" prot="public" virt="virtual"><scope>OctreeInternalNode</scope><name>IsLeaf</name></member>
+      <member refid="classOctreeInternalNode_1a714a84300584ea7d017186e0268ff65b" prot="public" virt="non-virtual"><scope>OctreeInternalNode</scope><name>OctreeInternalNode</name></member>
+      <member refid="classOctreeInternalNode_1aa1e37e3ee61d1d007523abc04ef8936e" prot="public" virt="non-virtual"><scope>OctreeInternalNode</scope><name>SetChild</name></member>
+      <member refid="classOctreeInternalNode_1a5cbee306c64a59fe60a6220156b4bc0b" prot="public" virt="virtual"><scope>OctreeInternalNode</scope><name>ToBitString</name></member>
+      <member refid="classOctreeInternalNode_1acf8b3e941c0f946e41dd159bc0eb79be" prot="public" virt="virtual"><scope>OctreeInternalNode</scope><name>ToJson</name></member>
+      <member refid="classOctreeNode_1a6c8aef2204b968cecd2f53813b7a1e90" prot="public" virt="virtual"><scope>OctreeInternalNode</scope><name>~OctreeNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

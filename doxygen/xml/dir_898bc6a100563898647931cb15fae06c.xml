@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_898bc6a100563898647931cb15fae06c" kind="dir">
+    <compoundname>VoxelForge</compoundname>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="octree_8cpp">octree.cpp</innerfile>
+    <innerfile refid="octree_8h">octree.h</innerfile>
+    <innerfile refid="voxel_8cpp">voxel.cpp</innerfile>
+    <innerfile refid="voxel_8h">voxel.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/andrew/voxelforge/VoxelForge/"/>
+  </compounddef>
+</doxygen>

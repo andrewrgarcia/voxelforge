@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classVoxelGrid" kind="class" language="C++" prot="public">
+    <compoundname>VoxelGrid</compoundname>
+    <includes refid="voxel_8h" local="yes">/home/andrew/voxelforge/VoxelForge/voxel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classVoxel" kindref="compound">Voxel</ref> &gt;</type>
+        <definition>std::vector&lt;Voxel&gt; VoxelGrid::voxels</definition>
+        <argsstring></argsstring>
+        <name>voxels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="21" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" compoundref="voxel_8cpp" startline="19" endline="21">addVoxel</referencedby>
+        <referencedby refid="voxel_8cpp_1a03c7ff708a72e2a3e2100ef4a87ddab2" compoundref="voxel_8cpp" startline="56" endline="70">createEdgeIndex</referencedby>
+        <referencedby refid="voxel_8cpp_1a4fa9b1a6b72022d76a223da0ce920d06" compoundref="voxel_8cpp" startline="44" endline="54">createNodeFeatures</referencedby>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+        <referencedby refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" compoundref="voxel_8cpp" startline="23" endline="29">toList</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVoxelGrid_1a7c8c91595d2c009db8f67557bb87c2aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VoxelGrid::VoxelGrid</definition>
+        <argsstring>()</argsstring>
+        <name>VoxelGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="23" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VoxelGrid::addVoxel</definition>
+        <argsstring>(int x, int y, int z, pybind11::object data=pybind11::int_(1))</argsstring>
+        <name>addVoxel</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>pybind11::object</type>
+          <declname>data</declname>
+          <defval>pybind11::int_(1)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="25" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="19" bodyend="21"/>
+        <references refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" compoundref="voxel_8h" startline="21">voxels</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::tuple&lt; int, int, int &gt; &gt;</type>
+        <definition>std::vector&lt; std::tuple&lt; int, int, int &gt; &gt; VoxelGrid::toList</definition>
+        <argsstring>() const</argsstring>
+        <name>toList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="26" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="23" bodyend="29"/>
+        <references refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" compoundref="voxel_8h" startline="21">voxels</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; std::vector&lt; std::vector&lt; float &gt; &gt;, std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt;</type>
+        <definition>std::pair&lt; std::vector&lt; std::vector&lt; float &gt; &gt;, std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt; VoxelGrid::toGraph</definition>
+        <argsstring>(int xDim, int yDim, int zDim, float neighboring_radius=1.0)</argsstring>
+        <name>toGraph</name>
+        <param>
+          <type>int</type>
+          <declname>xDim</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yDim</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>zDim</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>neighboring_radius</declname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="28" column="5" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="38" bodyend="42"/>
+        <references refid="voxel_8cpp_1a03c7ff708a72e2a3e2100ef4a87ddab2" compoundref="voxel_8cpp" startline="56" endline="70">createEdgeIndex</references>
+        <references refid="voxel_8cpp_1a4fa9b1a6b72022d76a223da0ce920d06" compoundref="voxel_8cpp" startline="44" endline="54">createNodeFeatures</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>T</label>
+      </node>
+      <node id="4">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="5" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Voxel</label>
+        <link refid="classVoxel"/>
+      </node>
+      <node id="2">
+        <label>std::vector&lt; Voxel &gt;</label>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="template-instance">
+          <edgelabel>&lt; Voxel &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VoxelGrid</label>
+        <link refid="classVoxelGrid"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>voxels</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="19" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="19" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" prot="public" virt="non-virtual"><scope>VoxelGrid</scope><name>addVoxel</name></member>
+      <member refid="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" prot="public" virt="non-virtual"><scope>VoxelGrid</scope><name>toGraph</name></member>
+      <member refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" prot="public" virt="non-virtual"><scope>VoxelGrid</scope><name>toList</name></member>
+      <member refid="classVoxelGrid_1a7c8c91595d2c009db8f67557bb87c2aa" prot="public" virt="non-virtual"><scope>VoxelGrid</scope><name>VoxelGrid</name></member>
+      <member refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" prot="public" virt="non-virtual"><scope>VoxelGrid</scope><name>voxels</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

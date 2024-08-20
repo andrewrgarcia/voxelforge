@@ -34,8 +34,6 @@ python:
     - requirements: docs/requirements.txt
     - method: pip
       path: .
-    - pip install -e .
-
 
 
 # commands:

@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classVoxel" kind="class" language="C++" prot="public">
+    <compoundname>Voxel</compoundname>
+    <includes refid="voxel_8h" local="yes">/home/andrew/voxelforge/VoxelForge/voxel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classVoxel_1a674294363564721716c6f0aa4f215ede" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Voxel::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="10" column="9" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="voxel_8cpp_1a87852c588d25ed4b01291195a4032937" compoundref="voxel_8cpp" startline="72" endline="78">calculateDistance</referencedby>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Voxel::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="10" column="11" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="voxel_8cpp_1a87852c588d25ed4b01291195a4032937" compoundref="voxel_8cpp" startline="72" endline="78">calculateDistance</referencedby>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Voxel::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="10" column="13" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="voxel_8cpp_1a87852c588d25ed4b01291195a4032937" compoundref="voxel_8cpp" startline="72" endline="78">calculateDistance</referencedby>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classVoxel_1af8b08008011165d8769d73d1949c2e67" prot="public" static="no" mutable="no">
+        <type>pybind11::object</type>
+        <definition>pybind11::object Voxel::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="11" column="22" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" compoundref="voxel_8cpp" startline="8" endline="10">getData</referencedby>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+        <referencedby refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" compoundref="voxel_8cpp" startline="12" endline="14">setData</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVoxel_1a3ec9ead5df15b2735e62765531485250" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Voxel::Voxel</definition>
+        <argsstring>(int x, int y, int z, pybind11::object data=pybind11::int_(1))</argsstring>
+        <name>Voxel</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>pybind11::object</type>
+          <declname>data</declname>
+          <defval>pybind11::int_(1)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="13" column="5" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="6" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>pybind11::object</type>
+        <definition>pybind11::object Voxel::getData</definition>
+        <argsstring>() const</argsstring>
+        <name>getData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="15" column="22" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="8" bodyend="10"/>
+        <references refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" compoundref="voxel_8h" startline="11">data</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classVoxel_1aadc8381c79044a5f56828802dd00563b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Voxel::setData</definition>
+        <argsstring>(pybind11::object value)</argsstring>
+        <name>setData</name>
+        <param>
+          <type>pybind11::object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="16" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.cpp" bodystart="12" bodyend="14"/>
+        <references refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" compoundref="voxel_8h" startline="11">data</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/andrew/voxelforge/VoxelForge/voxel.h" line="8" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/voxel.h" bodystart="8" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" prot="public" virt="non-virtual"><scope>Voxel</scope><name>data</name></member>
+      <member refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" prot="public" virt="non-virtual"><scope>Voxel</scope><name>getData</name></member>
+      <member refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" prot="public" virt="non-virtual"><scope>Voxel</scope><name>setData</name></member>
+      <member refid="classVoxel_1a3ec9ead5df15b2735e62765531485250" prot="public" virt="non-virtual"><scope>Voxel</scope><name>Voxel</name></member>
+      <member refid="classVoxel_1a674294363564721716c6f0aa4f215ede" prot="public" virt="non-virtual"><scope>Voxel</scope><name>x</name></member>
+      <member refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" prot="public" virt="non-virtual"><scope>Voxel</scope><name>y</name></member>
+      <member refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" prot="public" virt="non-virtual"><scope>Voxel</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

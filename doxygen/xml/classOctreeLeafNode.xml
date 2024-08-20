@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classOctreeLeafNode" kind="class" language="C++" prot="public">
+    <compoundname>OctreeLeafNode</compoundname>
+    <basecompoundref refid="classOctreeNode" prot="public" virt="non-virtual">OctreeNode</basecompoundref>
+    <includes refid="octree_8h" local="yes">/home/andrew/voxelforge/VoxelForge/octree.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d OctreeLeafNode::point_</definition>
+        <argsstring></argsstring>
+        <name>point_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="26" column="21" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" compoundref="octree_8cpp" startline="11" endline="13">GetPoint</referencedby>
+        <referencedby refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" compoundref="octree_8cpp" startline="15" endline="26">ToJson</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOctreeLeafNode_1acef0b95fe46052ca6ef3c308f3568b22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OctreeLeafNode::OctreeLeafNode</definition>
+        <argsstring>(const Eigen::Vector3d &amp;point)</argsstring>
+        <name>OctreeLeafNode</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="19" column="5" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool OctreeLeafNode::IsLeaf</definition>
+        <argsstring>() const override</argsstring>
+        <name>IsLeaf</name>
+        <reimplements refid="classOctreeNode_1aa2e4ae8949ae5ac0f789c23f2c429f0c">IsLeaf</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="20" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="7" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Eigen::Vector3d &amp;</type>
+        <definition>const Eigen::Vector3d &amp; OctreeLeafNode::GetPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>GetPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="21" column="27" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="11" bodyend="13"/>
+        <references refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" compoundref="octree_8h" startline="26">point_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string OctreeLeafNode::ToJson</definition>
+        <argsstring>(int indent=0) const override</argsstring>
+        <name>ToJson</name>
+        <reimplements refid="classOctreeNode_1a218c1936b3aa67dad762986859c0f353">ToJson</reimplements>
+        <param>
+          <type>int</type>
+          <declname>indent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="22" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="15" bodyend="26"/>
+        <references refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" compoundref="octree_8h" startline="26">point_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string OctreeLeafNode::ToBitString</definition>
+        <argsstring>() const override</argsstring>
+        <name>ToBitString</name>
+        <reimplements refid="classOctreeNode_1a0dac4caf2b463211d3e085e828e1d215">ToBitString</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="23" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="28" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>OctreeLeafNode</label>
+        <link refid="classOctreeLeafNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OctreeNode</label>
+        <link refid="classOctreeNode"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>OctreeLeafNode</label>
+        <link refid="classOctreeLeafNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OctreeNode</label>
+        <link refid="classOctreeNode"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="17" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="17" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classOctreeLeafNode_1a26cfa9c5d7715a74c0f82ba815efd911" prot="public" virt="non-virtual"><scope>OctreeLeafNode</scope><name>GetPoint</name></member>
+      <member refid="classOctreeLeafNode_1a712263611fabdae2689407ea5d84f730" prot="public" virt="virtual"><scope>OctreeLeafNode</scope><name>IsLeaf</name></member>
+      <member refid="classOctreeLeafNode_1acef0b95fe46052ca6ef3c308f3568b22" prot="public" virt="non-virtual"><scope>OctreeLeafNode</scope><name>OctreeLeafNode</name></member>
+      <member refid="classOctreeLeafNode_1a7bf9a951e923fdff8b6364edd4eb1993" prot="private" virt="non-virtual"><scope>OctreeLeafNode</scope><name>point_</name></member>
+      <member refid="classOctreeLeafNode_1a2769c56034ba701e5264123ce1e27308" prot="public" virt="virtual"><scope>OctreeLeafNode</scope><name>ToBitString</name></member>
+      <member refid="classOctreeLeafNode_1a9f2786fca447d97f39add5c48807562b" prot="public" virt="virtual"><scope>OctreeLeafNode</scope><name>ToJson</name></member>
+      <member refid="classOctreeNode_1a6c8aef2204b968cecd2f53813b7a1e90" prot="public" virt="virtual"><scope>OctreeLeafNode</scope><name>~OctreeNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

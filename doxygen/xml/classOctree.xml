@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classOctree" kind="class" language="C++" prot="public">
+    <compoundname>Octree</compoundname>
+    <includes refid="octree_8h" local="yes">/home/andrew/voxelforge/VoxelForge/octree.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Octree::origin_</definition>
+        <argsstring></argsstring>
+        <name>origin_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="59" column="21" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" compoundref="octree_8cpp" startline="87" endline="89">InsertPoint</referencedby>
+        <referencedby refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" compoundref="octree_8cpp" startline="91" endline="111">LocateLeafNode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Octree::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="60" column="12" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="60" bodyend="-1"/>
+        <referencedby refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" compoundref="octree_8cpp" startline="87" endline="89">InsertPoint</referencedby>
+        <referencedby refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" compoundref="octree_8cpp" startline="91" endline="111">LocateLeafNode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classOctree_1ae262ba1d9a7323a8c7f4c20b66f2e338" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t Octree::max_depth_</definition>
+        <argsstring></argsstring>
+        <name>max_depth_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="61" column="12" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" compoundref="octree_8cpp" startline="113" endline="141">InsertPointRecurse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classOctree_1a67b201a1f0c61a434805dd4109a15a82" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;OctreeNode&gt; Octree::root_</definition>
+        <argsstring></argsstring>
+        <name>root_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="62" column="21" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" compoundref="octree_8cpp" startline="87" endline="89">InsertPoint</referencedby>
+        <referencedby refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" compoundref="octree_8cpp" startline="91" endline="111">LocateLeafNode</referencedby>
+        <referencedby refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" compoundref="octree_8cpp" startline="143" endline="145">ToBitString</referencedby>
+        <referencedby refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" compoundref="octree_8cpp" startline="147" endline="149">ToJson</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOctree_1ade9860a042c987b597df86005441dde6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Octree::Octree</definition>
+        <argsstring>(const Eigen::Vector3d &amp;origin, double size, size_t max_depth)</argsstring>
+        <name>Octree</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="46" column="5" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="84" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Octree::InsertPoint</definition>
+        <argsstring>(const Eigen::Vector3d &amp;point)</argsstring>
+        <name>InsertPoint</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="47" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="87" bodyend="89"/>
+        <references refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" compoundref="octree_8cpp" startline="113" endline="141">InsertPointRecurse</references>
+        <references refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" compoundref="octree_8h" startline="59">origin_</references>
+        <references refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" compoundref="octree_8h" startline="62">root_</references>
+        <references refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" compoundref="octree_8h" startline="60">size_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctree_1aa25d0d17566b1f628f0898ad56a72060" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classOctreeLeafNode" kindref="compound">OctreeLeafNode</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; OctreeLeafNode &gt; Octree::LocateLeafNode</definition>
+        <argsstring>(const Eigen::Vector3d &amp;point) const</argsstring>
+        <name>LocateLeafNode</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="48" column="21" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="91" bodyend="111"/>
+        <references refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" compoundref="octree_8h" startline="59">origin_</references>
+        <references refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" compoundref="octree_8h" startline="62">root_</references>
+        <references refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" compoundref="octree_8h" startline="60">size_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Octree::ToBitString</definition>
+        <argsstring>() const</argsstring>
+        <name>ToBitString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="50" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="143" bodyend="145"/>
+        <references refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" compoundref="octree_8h" startline="62">root_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Octree::ToJson</definition>
+        <argsstring>(int indent=0) const</argsstring>
+        <name>ToJson</name>
+        <param>
+          <type>int</type>
+          <declname>indent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="51" column="17" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="147" bodyend="149"/>
+        <references refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" compoundref="octree_8h" startline="62">root_</references>
+        <referencedby refid="main_8cpp_1ab3f0a8398ed4fea88f43e2b8a7eefb8c" compoundref="main_8cpp" startline="9" endline="51">PYBIND11_MODULE</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Octree::InsertPointRecurse</definition>
+        <argsstring>(const std::shared_ptr&lt; OctreeNode &gt; &amp;node, const Eigen::Vector3d &amp;point, const Eigen::Vector3d &amp;origin, double size, size_t depth)</argsstring>
+        <name>InsertPointRecurse</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classOctreeNode" kindref="compound">OctreeNode</ref> &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="54" column="10" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.cpp" bodystart="113" bodyend="141"/>
+        <references refid="classOctree_1ae262ba1d9a7323a8c7f4c20b66f2e338" compoundref="octree_8h" startline="61">max_depth_</references>
+        <referencedby refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" compoundref="octree_8cpp" startline="87" endline="89">InsertPoint</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>std::shared_ptr&lt; T &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Octree</label>
+        <link refid="classOctree"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>root_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::shared_ptr&lt; OctreeNode &gt;</label>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; OctreeNode &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/andrew/voxelforge/VoxelForge/octree.h" line="44" column="1" bodyfile="/home/andrew/voxelforge/VoxelForge/octree.h" bodystart="44" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classOctree_1a5d777375fda4a95964ac9bd1a10a038a" prot="public" virt="non-virtual"><scope>Octree</scope><name>InsertPoint</name></member>
+      <member refid="classOctree_1a471bf20f5d35fc6cc75307934a5eaebb" prot="private" virt="non-virtual"><scope>Octree</scope><name>InsertPointRecurse</name></member>
+      <member refid="classOctree_1aa25d0d17566b1f628f0898ad56a72060" prot="public" virt="non-virtual"><scope>Octree</scope><name>LocateLeafNode</name></member>
+      <member refid="classOctree_1ae262ba1d9a7323a8c7f4c20b66f2e338" prot="private" virt="non-virtual"><scope>Octree</scope><name>max_depth_</name></member>
+      <member refid="classOctree_1ade9860a042c987b597df86005441dde6" prot="public" virt="non-virtual"><scope>Octree</scope><name>Octree</name></member>
+      <member refid="classOctree_1a727accd719ec3ef7ca0eb8c095f88fc6" prot="private" virt="non-virtual"><scope>Octree</scope><name>origin_</name></member>
+      <member refid="classOctree_1a67b201a1f0c61a434805dd4109a15a82" prot="private" virt="non-virtual"><scope>Octree</scope><name>root_</name></member>
+      <member refid="classOctree_1aa93d08ce0d272b71763f9f330a3bacac" prot="private" virt="non-virtual"><scope>Octree</scope><name>size_</name></member>
+      <member refid="classOctree_1af3a7f0e5899726ca62d8e7bbd68aad60" prot="public" virt="non-virtual"><scope>Octree</scope><name>ToBitString</name></member>
+      <member refid="classOctree_1a1412a6fc1faea00af8d001c7212a5d86" prot="public" virt="non-virtual"><scope>Octree</scope><name>ToJson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

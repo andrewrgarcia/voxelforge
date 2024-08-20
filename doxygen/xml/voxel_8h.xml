@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="voxel_8h" kind="file" language="C++">
+    <compoundname>voxel.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">Eigen/Dense</includes>
+    <includes local="no">tuple</includes>
+    <includes local="no">pybind11/pybind11.h</includes>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <includedby refid="voxel_8cpp" local="yes">voxel.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>voxel.h</label>
+        <link refid="voxel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>pybind11/pybind11.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>voxel.cpp</label>
+        <link refid="voxel_8cpp"/>
+      </node>
+      <node id="1">
+        <label>voxel.h</label>
+        <link refid="voxel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classVoxel" prot="public">Voxel</innerclass>
+    <innerclass refid="classVoxelGrid" prot="public">VoxelGrid</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tuple&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/pybind11.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="classVoxel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVoxel" kindref="compound">Voxel</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="10" refid="classVoxel_1a674294363564721716c6f0aa4f215ede" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classVoxel_1a674294363564721716c6f0aa4f215ede" kindref="member">x</ref>,<sp/><ref refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" kindref="member">y</ref>,<sp/><ref refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" kindref="member">z</ref>;</highlight></codeline>
+<codeline lineno="11" refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>pybind11::object<sp/><ref refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVoxel_1a3ec9ead5df15b2735e62765531485250" kindref="member">Voxel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classVoxel_1a674294363564721716c6f0aa4f215ede" kindref="member">x</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classVoxel_1a3cbecb90fc3ff99be1b6f1598ae9aa13" kindref="member">y</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classVoxel_1ad594fe5ff5daf488c7d178d0017f480e" kindref="member">z</ref>,<sp/>pybind11::object<sp/><ref refid="classVoxel_1af8b08008011165d8769d73d1949c2e67" kindref="member">data</ref><sp/>=<sp/>pybind11::int_(1));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>pybind11::object<sp/><ref refid="classVoxel_1a9614452c6bdb92f30c9c07a0e2c543ec" kindref="member">getData</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVoxel_1aadc8381c79044a5f56828802dd00563b" kindref="member">setData</ref>(pybind11::object<sp/>value);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classVoxelGrid" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVoxelGrid" kindref="compound">VoxelGrid</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Voxel&gt;<sp/><ref refid="classVoxelGrid_1a7fd3f777177eddc937950363aed16c4d" kindref="member">voxels</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classVoxelGrid_1a7c8c91595d2c009db8f67557bb87c2aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVoxelGrid_1a7c8c91595d2c009db8f67557bb87c2aa" kindref="member">VoxelGrid</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVoxelGrid_1a54bf370516edaea473f3c11a69cfbc39" kindref="member">addVoxel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z,<sp/>pybind11::object<sp/>data<sp/>=<sp/>pybind11::int_(1));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::tuple&lt;int,<sp/>int,<sp/>int&gt;&gt;<sp/><ref refid="classVoxelGrid_1ae681fbc351f63d6389275d3f79330bca" kindref="member">toList</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>std::pair&lt;std::vector&lt;std::vector&lt;float&gt;&gt;,<sp/>std::vector&lt;std::pair&lt;int,<sp/>int&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVoxelGrid_1af2c979ef9e6b5058de86b7395a3dc1b7" kindref="member">toGraph</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xDim,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yDim,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zDim,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>neighboring_radius<sp/>=<sp/>1.0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/home/andrew/voxelforge/VoxelForge/voxel.h"/>
+  </compounddef>
+</doxygen>

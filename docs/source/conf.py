@@ -43,6 +43,10 @@ breathe_projects = {
 }
 breathe_default_project = "VoxelForge"
 
+# Mock the voxelforge_cpp module
+autodoc_mock_imports = ["voxelforge_cpp"]
+
+
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'furo'  # Modern theme, clean and easy to navigate
 

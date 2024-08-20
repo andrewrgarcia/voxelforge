@@ -15,7 +15,9 @@ build:
     # nodejs: "19"
     # rust: "1.64"
     # golang: "1.19"
-
+  apt_packages:
+    - doxygen
+    - libeigen3-dev
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
@@ -34,10 +36,7 @@ python:
       path: .
 
 
-# build:
-#   apt_packages:
-#     - doxygen
-#     - libeigen3-dev
 
-commands:
-  - doxygen Doxyfile
+
+# commands:
+#   - doxygen Doxyfile

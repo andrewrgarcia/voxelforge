@@ -28,6 +28,16 @@ formats:
 
 # Optionally declare the Python requirements required to build your docs
 python:
-   install:
-   - requirements: requirements.in
+  install:
+    - requirements: docs/requirements.in  # Ensure this file lists your Python dependencies
+    - method: pip
+      path: .
 
+
+build:
+  apt_packages:
+    - doxygen
+    - libeigen3-dev
+
+commands:
+  - doxygen Doxyfile

@@ -1,3 +1,4 @@
+import os
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import sys
@@ -15,25 +16,29 @@ class get_pybind_include(object):
         import pybind11
         return pybind11.get_include()
 
-ext_modules = [
-    Extension(
-        'voxelforge_cpp',  # Ensure this matches the PYBIND11_MODULE macro
-        sources=[
-            'VoxelForge/voxel.cpp',
-            'VoxelForge/octree.cpp',
-            'VoxelForge/main.cpp',
-        ],
-        include_dirs=[
-            get_pybind_include(),
-            # get_pybind_include(user=True),
-            eigen_include_dir,
-            'VoxelForge', 
-        ],
-        extra_compile_args=['-std=c++17'],  # Use C++17 standard
-        libraries=['stdc++'],  # Link against the C++ standard library
-        language='c++'
-    ),
-]
+ext_modules = []
+
+if not os.getenv('READTHEDOCS'):
+
+    ext_modules = [
+        Extension(
+            'voxelforge_cpp',  # Ensure this matches the PYBIND11_MODULE macro
+            sources=[
+                'VoxelForge/voxel.cpp',
+                'VoxelForge/octree.cpp',
+                'VoxelForge/main.cpp',
+            ],
+            include_dirs=[
+                get_pybind_include(),
+                # get_pybind_include(user=True),
+                eigen_include_dir,
+                'VoxelForge', 
+            ],
+            extra_compile_args=['-std=c++17'],  # Use C++17 standard
+            libraries=['stdc++'],  # Link against the C++ standard library
+            language='c++'
+        ),
+    ]
 
 
 setup(

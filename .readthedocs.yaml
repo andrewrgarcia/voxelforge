@@ -31,7 +31,7 @@ formats:
 # Optionally declare the Python requirements required to build your docs
 python:
   install:
-    - requirements: docs/requirements.in  # Ensure this file lists your Python dependencies
+    - requirements: docs/requirements.txt  # Ensure this file lists your Python dependencies
     - method: pip
       path: .
 
